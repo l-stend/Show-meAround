@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const router = require('./router');
+require('./models/db-connection');
 
 const PORT = 3090;
 
