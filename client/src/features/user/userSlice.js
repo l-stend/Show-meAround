@@ -14,12 +14,18 @@ export const registerUser = createAsyncThunk(
   async (user, ThunkAPI) => {
     try {
       const { email, password } = user;
-      const newUser = createUserWithEmailAndPassword(auth, email, password);
+      const newUser = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       if (newUser) {
         const res = await customFetch.post('/register', user);
+        console.log(res.data);
         return res.data;
+      } else {
+        throw new Error();
       }
-      throw new Error();
     } catch (error) {
       return ThunkAPI.rejectWithValue(error.response.data.msg);
     }
