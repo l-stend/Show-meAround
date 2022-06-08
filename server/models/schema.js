@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   type: String,
   name: String,
   email: String,
+  pwd: String,
   rating: Number,
   chats: Array,
   navLinks: Array,
@@ -25,6 +26,7 @@ const tourSchema = new mongoose.Schema({
   img: String, // ❗❗
   dashboard: Array,
   reviews: Array,
+  createdAt: Date,
 });
 
 const Tour = mongoose.model('tour', tourSchema);
@@ -32,6 +34,7 @@ const Tour = mongoose.model('tour', tourSchema);
 const chatSchema = new mongoose.Schema({
   participants: Array,
   msgs: Array,
+  createdAt: Date,
 });
 
 const Chat = mongoose.model('chat', chatSchema);
