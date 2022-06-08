@@ -1,4 +1,3 @@
-const { Timestamp } = require('mongodb');
 const mongoose = require('mongoose');
 require('./db-connection');
 
@@ -14,10 +13,13 @@ const userSchema = new mongoose.Schema({
   myTours: Array,
 });
 
+const User = mongoose.model('user', userSchema);
+
 const tourSchema = new mongoose.Schema({
   title: String,
+  author: User.schema,
   description: String,
-  startAt: Timestamp,
+  startAt: Date,
   duration: Number,
   days: Array,
   img: String, // ❗❗
@@ -25,26 +27,28 @@ const tourSchema = new mongoose.Schema({
   reviews: Array,
 });
 
+const Tour = mongoose.model('tour', tourSchema);
+
 const chatSchema = new mongoose.Schema({
   participants: Array,
   msgs: Array,
 });
 
+const Chat = mongoose.model('chat', chatSchema);
+
 const msgSchema = new mongoose.Schema({
-  author: User,
+  author: User.schema,
   content: String,
-  time: Timestamp,
+  time: Date,
 });
+
+const Msg = mongoose.model('msg', msgSchema); // do I even need it ❓❓
 
 const reviewsSchema = new mongoose.Schema({
-  author: User,
+  author: User.schema,
   content: String,
 });
 
-const User = mongoose.model('user', userSchema);
-const Tour = mongoose.model('tour', tourSchema);
-const Chat = mongoose.model('chat', chatSchema);
-const Msg = mongoose.model('msg', msgSchema); // do I even need it ❓❓
-const Review = mongoose.model('tour', reviewsSchema);
+const Review = mongoose.model('review', reviewsSchema);
 
 module.exports = { User, Tour, Chat, Msg, Review };
