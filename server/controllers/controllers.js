@@ -4,8 +4,10 @@ const { User, Tour } = require('../models/schema');
 
 const createUser = async (req, res) => {
   try {
-    await User.create(req.body);
+    console.log('body ', req.body);
+    const user = await User.create(req.body);
     res.status(201);
+    res.send(user);
   } catch (error) {
     console.log(error);
   }
