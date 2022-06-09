@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Navbar } from '../components';
 
 const Dashboard = () => {
   const { user } = useSelector((store) => store.user);
@@ -12,7 +13,7 @@ const Dashboard = () => {
       ) : (
         <h2>🐫 Dashboard for locals🐫</h2>
       )}
-      <Link to='/dumb'>dumb</Link>
+      <Navbar />
       <Outlet />
     </main>
   );

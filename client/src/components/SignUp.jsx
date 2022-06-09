@@ -7,6 +7,7 @@ import {
   registerUser,
   loginUser,
 } from '../features/user/userSlice';
+import { localsLinks, travelersLinks } from '../utils/navLInksObjs';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -38,8 +39,8 @@ const SignUp = () => {
           type: e.target.type.value,
         };
         e.target.type.value === 'local'
-          ? (user.navLinks = ['My tours', 'Create Tour', 'Chats', 'Profile'])
-          : (user.navLinks = ['Tours', 'Chats', 'Profile']);
+          ? (user.navLinks = localsLinks)
+          : (user.navLinks = travelersLinks);
       }
       console.log(user);
       isMember ? dispatch(loginUser(user)) : dispatch(registerUser(user));

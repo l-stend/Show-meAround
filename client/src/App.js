@@ -10,11 +10,15 @@ import {
   AllTours,
   TravelerProfile,
   TravelerChats,
+  MyTours,
+  CreateTour,
 } from './pages';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const { user } = useSelector((store) => store.user);
   return (
     <>
       <h2>🐋 Fraseddha 🐋</h2>
@@ -32,9 +36,14 @@ function App() {
             }
           >
             {/* {pagine da cui si potrà accedere dalla shared dashboard} */}
-            <Route index element={<AllTours />} />
-            <Route path='/userProfile' element={<TravelerProfile />} />
-            <Route path='/userChats' element={<TravelerChats />} />
+            {user === 'local' ? (
+              <Route index element={<AllTours />} />
+            ) : (
+              <Route index element={<MyTours />} />
+            )}
+            <Route path='/profile' element={<TravelerProfile />} />
+            <Route path='/chats' element={<TravelerChats />} />
+            <Route path='/createTour' element={<CreateTour />} />
           </Route>
           <Route path='*' element={<ErrorPage />} />
         </Routes>
