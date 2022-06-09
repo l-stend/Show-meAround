@@ -7,7 +7,9 @@ import {
   ProtectedRoute,
   Landing,
   ErrorPage,
-  DumbComp,
+  AllTours,
+  TravelerProfile,
+  TravelerChats,
 } from './pages';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,8 +32,9 @@ function App() {
             }
           >
             {/* {pagine da cui si potrà accedere dalla shared dashboard} */}
-            <Route index element={<Dashboard />} />
-            <Route path='/dumb' element={<DumbComp />} />
+            <Route index element={<AllTours />} />
+            <Route path='/userProfile' element={<TravelerProfile />} />
+            <Route path='/userChats' element={<TravelerChats />} />
           </Route>
           <Route path='*' element={<ErrorPage />} />
         </Routes>

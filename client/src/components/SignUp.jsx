@@ -17,11 +17,31 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     if (e.target.email.value && e.target.password.value) {
       e.preventDefault();
-      const user = {
-        name: e.target.name.value,
-        email: e.target.email.value,
-        password: e.target.password.value,
-      };
+      // const user = {
+      //   // name: e.target.name.value,
+      //   email: e.target.email.value,
+      //   password: e.target.password.value,
+      //   // type: e.target.type.value,
+      // };
+      let user = {};
+
+      if (isMember) {
+        user = {
+          email: e.target.email.value,
+          password: e.target.password.value,
+        };
+      } else {
+        user = {
+          name: e.target.name.value,
+          email: e.target.email.value,
+          password: e.target.password.value,
+          type: e.target.type.value,
+        };
+        e.target.type.value === 'local'
+          ? (user.navLinks = ['My tours', 'Create Tour', 'Chats', 'Profile'])
+          : (user.navLinks = ['Tours', 'Chats', 'Profile']);
+      }
+      console.log(user);
       isMember ? dispatch(loginUser(user)) : dispatch(registerUser(user));
     }
   };
@@ -39,6 +59,17 @@ const SignUp = () => {
       <form onSubmit={handleSubmit} className='form'>
         {!isMember && (
           <>
+            {/* radiobuttons */}
+            <input
+              type='radio'
+              id='traveler'
+              name='type'
+              value='traveler'
+              // checked='checked'
+            />
+            <label htmlFor='traveler'>Traveler</label>
+            <input type='radio' id='local' name='type' value='local' />
+            <label htmlFor='traveler'>Local</label>
             <label htmlFor='name'>Name</label>
             <input type='name' name='name' placeholder='insert your name' />
           </>
@@ -48,7 +79,7 @@ const SignUp = () => {
         <label htmlFor='password'>password</label>
         <input type='password' name='password' />
 
-        {(isMember && <button type='submit'>register</button>) ||
+        {(isMember && <button type='submit'>login</button>) ||
           (!isMember && <button type='submit'>register</button>)}
       </form>
       {!isMember ? (
