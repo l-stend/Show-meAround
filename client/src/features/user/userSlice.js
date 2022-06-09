@@ -4,12 +4,17 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import customFetch from '../../components/utils/axios';
+import customFetch from '../../utils/axios';
+import {
+  getUserFromLocalStorage,
+  addUserToLocalStorage,
+  removeUserFromLocalStorage,
+} from '../../utils/localStorage';
 import { toast } from 'react-toastify';
 
 const initialState = {
   isLoading: false,
-  user: null,
+  user: getUserFromLocalStorage(),
 };
 
 export const registerUser = createAsyncThunk(
@@ -40,11 +45,8 @@ export const loginUser = createAsyncThunk(
   async (user, ThunkAPI) => {
     try {
       const { email, password } = user;
-      console.log('gate 1');
       const newUser = await signInWithEmailAndPassword(auth, email, password);
-      console.log('gate 2');
       const res = await customFetch.get(`/user/${email}`);
-      // console.log(JSON.parse(res.data));
       return res.data;
     } catch (error) {
       return ThunkAPI.rejectWithValue(error.response.data.msg);
@@ -59,6 +61,7 @@ export const userSlice = createSlice({
     logoutUser: (state) => {
       state.user = null;
       console.log('logging out');
+      removeUserFromLocalStorage();
       toast('Logging Out');
     },
   },
@@ -69,6 +72,7 @@ export const userSlice = createSlice({
     [registerUser.fulfilled]: (state, { payload }) => {
       state.isLoading = true;
       state.user = payload;
+      addUserToLocalStorage(state.user);
       toast('User Created');
     },
     [registerUser.rejected]: (state, { payload }) => {
@@ -81,6 +85,7 @@ export const userSlice = createSlice({
     [loginUser.fulfilled]: (state, { payload }) => {
       state.isLoading = true;
       state.user = payload;
+      addUserToLocalStorage(state.user);
       toast('Log in Successful');
     },
     [loginUser.rejected]: (state, { payload }) => {

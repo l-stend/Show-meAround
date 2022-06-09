@@ -1,4 +1,4 @@
 🔴 capire come far importare immagini agli uteenti e come dichiararle nello schema del db
 🔴 capirte come definire le routes del router per funzionare con chiamate multiple e dal front-end
+🔴 cancella cartella utils da components
 
-🐛 se si tenta di creare un user con una email esistente viene creato un doppione nel database mongo 
