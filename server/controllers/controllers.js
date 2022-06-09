@@ -13,6 +13,21 @@ const createUser = async (req, res) => {
   }
 };
 
+const getUser = async (req, res) => {
+  try {
+    console.log('back 1', req.params);
+    const userEmail = req.params.email;
+    const user = await User.findOne({ email: userEmail });
+    console.log('back 2');
+    res.send(user);
+    console.log('back 3', user);
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+  }
+};
+
 //// TOURS
 
 const getAllTours = async (req, res) => {
@@ -36,4 +51,4 @@ const createTour = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getAllTours, createTour };
+module.exports = { createUser, getAllTours, createTour, getUser };

@@ -1,7 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser, registerUser } from '../features/user/userSlice';
+import {
+  logoutUser,
+  registerUser,
+  loginUser,
+} from '../features/user/userSlice';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -16,7 +20,7 @@ const SignUp = () => {
         email: e.target.email.value,
         password: e.target.password.value,
       };
-      dispatch(registerUser(user));
+      isMember ? dispatch(loginUser(user)) : dispatch(registerUser(user));
     }
   };
   return (
