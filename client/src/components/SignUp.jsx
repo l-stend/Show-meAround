@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   logoutUser,
   registerUser,
@@ -9,6 +10,7 @@ import {
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user } = useSelector((store) => store.user);
   const [isMember, setIsMember] = useState(false);
 
@@ -23,6 +25,14 @@ const SignUp = () => {
       isMember ? dispatch(loginUser(user)) : dispatch(registerUser(user));
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+    }
+  }, [user]);
   return (
     <section>
       {user && <h2>user is there</h2>}

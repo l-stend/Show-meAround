@@ -8,7 +8,7 @@ const ErrorPage = () => {
   return (
     <section>
       <h2>Error Page</h2>
-      {user ? <Link to='dashboard'>Back</Link> : <Link to='/'>Back</Link>}
+      {user ? <Link to='/'>Back</Link> : <Link to='/landing'>Back</Link>}
     </section>
   );
 };
