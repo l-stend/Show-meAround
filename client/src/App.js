@@ -12,6 +12,7 @@ import {
   TravelerChats,
   MyTours,
   CreateTour,
+  LocalProfile,
 } from './pages';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,7 +42,7 @@ function App() {
             ) : (
               <Route index element={<MyTours />} />
             )}
-            <Route path='/profile' element={<TravelerProfile />} />
+            <Route path='/profile' element={<LocalProfile />} />
             <Route path='/chats' element={<TravelerChats />} />
             <Route path='/createTour' element={<CreateTour />} />
           </Route>

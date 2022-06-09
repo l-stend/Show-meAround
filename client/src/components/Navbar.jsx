@@ -8,7 +8,6 @@ const Navbar = () => {
   return (
     <nav>
       <h2>⛵ Navbar ⛵</h2>
-      <button onClick={() => dispatch(logoutUser())}>logout</button>
       {user.navLinks.map((item) => {
         return (
           <NavLink key={item.name} to={`/${item.url}`}>
@@ -16,6 +15,7 @@ const Navbar = () => {
           </NavLink>
         );
       })}
+      <button onClick={() => dispatch(logoutUser())}>logout</button>
     </nav>
   );
 };
