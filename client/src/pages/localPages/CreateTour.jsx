@@ -33,7 +33,7 @@ const CreateTour = () => {
       days: utilArr,
       createdAt: Date.now(),
     };
-    console.log(tour);
+    console.log('created tour', tour);
     dispatch(createTour(tour));
   };
 

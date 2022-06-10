@@ -20,6 +20,19 @@ export const getAllTours = createAsyncThunk(
   }
 );
 
+export const getMyTours = createAsyncThunk(
+  'tours/getMyTours',
+  async (userEmail, thunkAPI) => {
+    try {
+      const res = await customFetch.get('/tours');
+      console.log(res.data.filter((item) => item.author === userEmail));
+      return res.data.filter((item) => item.author === userEmail);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg);
+    }
+  }
+);
+
 export const createTour = createAsyncThunk(
   'tours/createTour',
   async (user, ThunkAPI) => {
