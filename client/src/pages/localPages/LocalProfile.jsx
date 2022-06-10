@@ -14,8 +14,6 @@ const LocalProfile = () => {
   console.log(user?.name);
 
   const handleSubmit = (e) => {
-    console.log('nice try idiot');
-    console.log('img  ', e.target.img.file[0]);
     e.preventDefault();
     const updates = {
       name: e.target.name.value,
@@ -30,8 +28,6 @@ const LocalProfile = () => {
   };
 
   const uploadImage = () => {
-    console.log('aksufdg');
-    console.log(imageUpload);
     if (imageUpload === null) return;
 
     const imageRef = ref(storage, `userImages/${user.email}/avatar.png`);

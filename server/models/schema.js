@@ -19,9 +19,9 @@ const User = mongoose.model('user', userSchema);
 
 const tourSchema = new mongoose.Schema({
   title: String,
-  author: User.schema,
+  author: String,
   description: String,
-  startAt: Date,
+  startAt: String,
   duration: Number,
   days: Array,
   img: String, // ❗❗

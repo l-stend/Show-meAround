@@ -38,9 +38,9 @@ function App() {
           >
             {/* {pagine da cui si potrà accedere dalla shared dashboard} */}
             {user?.type === 'local' ? (
-              <Route index element={<AllTours />} />
-            ) : (
               <Route index element={<MyTours />} />
+            ) : (
+              <Route index element={<AllTours />} />
             )}
             <Route path='/profile' element={<LocalProfile />} />
             <Route path='/chats' element={<TravelerChats />} />

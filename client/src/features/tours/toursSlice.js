@@ -20,7 +20,18 @@ export const getAllTours = createAsyncThunk(
   }
 );
 
-export const createTour = createAsyncThunk('tours/createTour');
+export const createTour = createAsyncThunk(
+  'tours/createTour',
+  async (user, ThunkAPI) => {
+    try {
+      const res = await customFetch.post('/tour', user);
+      console.log('res.data    ', res.data);
+      return res.data;
+    } catch (error) {
+      return ThunkAPI.rejectWithValue(error.response.data.msg);
+    }
+  }
+);
 
 const toursSlice = createSlice({
   name: 'tours',
