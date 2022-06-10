@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../../features/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { addUserToLocalStorage } from '../../utils/localStorage';
 
 const LocalProfile = () => {
   const { user } = useSelector((store) => store.user);
@@ -12,12 +13,13 @@ const LocalProfile = () => {
     console.log('nice try idiot');
     e.preventDefault();
     const updates = {
-      // name: e.target.name.value,
+      name: e.target.name.value,
       email: user.email,
       lastName: e.target.surname.value,
       aboutMe: e.target.aboutMe.value,
     };
 
+    addUserToLocalStorage({ ...user, ...updates });
     dispatch(updateUser(updates));
     navigate('/');
   };

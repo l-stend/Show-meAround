@@ -12,6 +12,7 @@ import {
 } from '../../utils/localStorage';
 import { toast } from 'react-toastify';
 import { async } from '@firebase/util';
+import { useEffect } from 'react';
 
 const initialState = {
   isLoading: false,
@@ -116,7 +117,7 @@ export const userSlice = createSlice({
       state.isLoading = false;
       state.user = user;
 
-      // addUserToLocalStorage(state.user);
+      // addUserToLocalStorage(user);
       toast.success('User Updated');
     },
     [updateUser.rejected]: (state, { payload }) => {
