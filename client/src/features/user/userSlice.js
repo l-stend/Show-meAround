@@ -113,12 +113,12 @@ export const userSlice = createSlice({
       state.isLoading = true;
     },
     [updateUser.fulfilled]: (state, { payload }) => {
-      const { user } = payload;
+      const user = payload;
       state.isLoading = false;
       state.user = user;
 
       // addUserToLocalStorage(user);
-      toast.success('User Updated');
+      toast('User Updated');
     },
     [updateUser.rejected]: (state, { payload }) => {
       state.isLoading = false;

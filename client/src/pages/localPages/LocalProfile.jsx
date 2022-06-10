@@ -8,9 +8,11 @@ const LocalProfile = () => {
   const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  console.log(user?.name);
 
   const handleSubmit = (e) => {
     console.log('nice try idiot');
+    console.log(user.email);
     e.preventDefault();
     const updates = {
       name: e.target.name.value,
@@ -23,7 +25,6 @@ const LocalProfile = () => {
     dispatch(updateUser(updates));
     navigate('/');
   };
-  console.log(user);
   return (
     <section>
       <h2>LocalProfile</h2>

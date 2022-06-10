@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../features/user/userSlice';
+import { getUserFromLocalStorage } from '../utils/localStorage';
 
 const Navbar = () => {
-  const { user } = useSelector((store) => store.user);
+  // const { user } = useSelector((store) => store.user);
+  const user = getUserFromLocalStorage();
   const dispatch = useDispatch();
   return (
     <nav>
