@@ -14,7 +14,7 @@ router.patch('/user/:email', updateUser);
 
 ///TOUR
 router.get('/tours', getAllTours);
-router.post('/tours', createTour);
+router.post('/tour', createTour);
 // router.get('/chat', getChats);
 // router.post('/chat', createChat);
 
