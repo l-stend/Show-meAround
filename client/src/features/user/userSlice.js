@@ -11,6 +11,7 @@ import {
   removeUserFromLocalStorage,
 } from '../../utils/localStorage';
 import { toast } from 'react-toastify';
+import { async } from '@firebase/util';
 
 const initialState = {
   isLoading: false,
@@ -56,6 +57,19 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+export const updateUser = createAsyncThunk(
+  'user/updateUser',
+  async (user, ThunkAPI) => {
+    try {
+      const { email } = user;
+      const res = await customFetch.patch(`/user/${email}`, user);
+      return res.data;
+    } catch (error) {
+      return ThunkAPI.rejectWithValue(error.response.data.msg);
+    }
+  }
+);
+
 export const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -93,6 +107,21 @@ export const userSlice = createSlice({
     [loginUser.rejected]: (state, { payload }) => {
       state.isLoading = true;
       toast.error('Login Failed');
+    },
+    [updateUser.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [updateUser.fulfilled]: (state, { payload }) => {
+      const { user } = payload;
+      state.isLoading = false;
+      state.user = user;
+
+      // addUserToLocalStorage(state.user);
+      toast.success('User Updated');
+    },
+    [updateUser.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      toast.error(payload);
     },
   },
 });

@@ -18,12 +18,6 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     if (e.target.email.value && e.target.password.value) {
       e.preventDefault();
-      // const user = {
-      //   // name: e.target.name.value,
-      //   email: e.target.email.value,
-      //   password: e.target.password.value,
-      //   // type: e.target.type.value,
-      // };
       let user = {};
 
       if (isMember) {

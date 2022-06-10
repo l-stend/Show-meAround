@@ -8,7 +8,7 @@ export const removeUserFromLocalStorage = () => {
 
 export const getUserFromLocalStorage = () => {
   const result = localStorage.getItem('user');
-  const user = result ? JSON.parse(result) : null;
+  const user = result !== 'undefined' ? JSON.parse(result) : null;
   console.log(
     ' getUserFromLocalStorage funonzia ma non funonzia, controllalo se si rompe qualcosa'
   );

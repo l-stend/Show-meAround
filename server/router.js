@@ -4,12 +4,15 @@ const {
   getAllTours,
   createTour,
   getUser,
+  updateUser,
 } = require('./controllers/controllers');
 
-//test route
-router.get('/test', (req, res) => res.send('working'));
+///USER
 router.post('/register', createUser);
 router.get('/user/:email', getUser);
+router.patch('/user/:email', updateUser);
+
+///TOUR
 router.get('/tours', getAllTours);
 router.post('/tours', createTour);
 // router.get('/chat', getChats);

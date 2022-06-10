@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { user } = useSelector((store) => store.user);
   return (
     <main>
-      {user.type === 'traveler' ? (
+      {user?.type === 'traveler' ? (
         <h2>🦆 Dashboard for Travelers 🦆</h2>
       ) : (
         <h2>🐫 Dashboard for locals🐫</h2>

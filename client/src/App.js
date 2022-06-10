@@ -37,7 +37,7 @@ function App() {
             }
           >
             {/* {pagine da cui si potrà accedere dalla shared dashboard} */}
-            {user === 'local' ? (
+            {user?.type === 'local' ? (
               <Route index element={<AllTours />} />
             ) : (
               <Route index element={<MyTours />} />

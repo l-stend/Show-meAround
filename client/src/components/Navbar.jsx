@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav>
       <h2>⛵ Navbar ⛵</h2>
-      {user.navLinks.map((item) => {
+      {user?.navLinks?.map((item) => {
         return (
           <NavLink key={item.name} to={`/${item.url}`}>
             {item.name}

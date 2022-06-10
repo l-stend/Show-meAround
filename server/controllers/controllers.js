@@ -25,6 +25,22 @@ const getUser = async (req, res) => {
   }
 };
 
+const updateUser = async (req, res) => {
+  try {
+    const userEmail = req.params.email;
+    console.log(req.body);
+    const user = await User.findOneAndUpdate({ email: userEmail }, req.body, {
+      new: true,
+    });
+    console.log(user);
+    res.send(user);
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+  }
+};
+
 //// TOURS
 
 const getAllTours = async (req, res) => {
@@ -48,4 +64,4 @@ const createTour = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getAllTours, createTour, getUser };
+module.exports = { createUser, getAllTours, createTour, getUser, updateUser };
