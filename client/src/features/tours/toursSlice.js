@@ -20,6 +20,8 @@ export const getAllTours = createAsyncThunk(
   }
 );
 
+export const createTour = createAsyncThunk('tours/createTour');
+
 const toursSlice = createSlice({
   name: 'tours',
   initialState,
@@ -30,7 +32,7 @@ const toursSlice = createSlice({
     },
     [getAllTours.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.toursArr = payload.toursArr;
+      state.toursArr = payload;
     },
     [getAllTours.rejected]: (state, { payload }) => {
       state.isLoading = false;
