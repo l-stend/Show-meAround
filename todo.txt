@@ -2,3 +2,5 @@
 🔴 capirte come definire le routes del router per funzionare con chiamate multiple e dal front-end
 🔴 cancella cartella utils da components
 
+🐛 i tour di allTours non vengono ricaricati al refresh della pagina => creare delle funzioni per salvare i tour nel localStorage, svuotarlo al logout dell'utente
+

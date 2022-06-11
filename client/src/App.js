@@ -1,7 +1,10 @@
-import { Container } from 'react-bootstrap';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { SignUp } from './components';
+import { ToastContainer } from 'react-toastify';
 import {
   Dashboard,
   ProtectedRoute,
@@ -13,10 +16,8 @@ import {
   MyTours,
   CreateTour,
   LocalProfile,
+  TourDetails,
 } from './pages';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useSelector } from 'react-redux';
 
 function App() {
   const { user } = useSelector((store) => store.user);
@@ -45,6 +46,7 @@ function App() {
             <Route path='/profile' element={<LocalProfile />} />
             <Route path='/chats' element={<TravelerChats />} />
             <Route path='/createTour' element={<CreateTour />} />
+            <Route path='/tourDetails/:tourId' element={<TourDetails />} />
           </Route>
           <Route path='*' element={<ErrorPage />} />
         </Routes>

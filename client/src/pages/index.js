@@ -9,6 +9,7 @@ import CreateTour from './localPages/CreateTour';
 import LocalChats from './localPages/LocalChats';
 import LocalProfile from './localPages/LocalProfile';
 import MyTours from './localPages/MyTours';
+import TourDetails from './TourDetails';
 
 export {
   Dashboard,
@@ -22,4 +23,5 @@ export {
   LocalChats,
   LocalProfile,
   MyTours,
+  TourDetails,
 };
