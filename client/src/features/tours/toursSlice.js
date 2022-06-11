@@ -47,6 +47,19 @@ export const createTour = createAsyncThunk(
   }
 );
 
+export const updateTour = createAsyncThunk(
+  'tours/updateTour',
+  async (tour, ThunkAPI) => {
+    try {
+      const { id } = tour;
+      const res = await customFetch.patch(`/tours/${id}`, tour);
+      return res.data;
+    } catch (error) {
+      return ThunkAPI.rejectWithValue(error.response.data.msg);
+    }
+  }
+);
+
 const toursSlice = createSlice({
   name: 'tours',
   initialState,
@@ -60,6 +73,21 @@ const toursSlice = createSlice({
       state.toursArr = payload;
     },
     [getAllTours.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      toast.error(payload);
+    },
+    [updateTour.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [updateTour.fulfilled]: (state, { payload }) => {
+      const tour = payload;
+      state.isLoading = false;
+      state.tour = tour;
+
+      // addUserToLocalStorage(tour);
+      toast('User Updated');
+    },
+    [updateTour.rejected]: (state, { payload }) => {
       state.isLoading = false;
       toast.error(payload);
     },

@@ -27,6 +27,7 @@ const tourSchema = new mongoose.Schema({
   img: String, // ❗❗
   dashboard: Array,
   reviews: Array,
+  participants: Array,
   createdAt: Date,
 });
 

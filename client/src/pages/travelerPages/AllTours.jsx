@@ -15,23 +15,12 @@ const MyTours = () => {
     dispatch(getAllTours());
     setShowTours(toursArr);
   }, []);
+
   return (
     <section>
       <h2>AllTours</h2>
       {showTours?.map((tour) => {
         return <Card key={tour._id} tour={{ ...tour }} />;
-        // return (
-        //   <div>
-        //     <h3>{item.title}</h3>
-        //     <h3>{item.author}</h3>
-        //     <div>
-        //       {item.days.map((day) => (
-        //         <h3>{day}</h3>
-        //       ))}
-        //     </div>
-        //     <p>{item.description}</p>
-        //   </div>
-        // );
       })}
       <button onClick={() => dispatch(getAllTours())}>test</button>
     </section>

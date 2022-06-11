@@ -64,4 +64,27 @@ const createTour = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getAllTours, createTour, getUser, updateUser };
+const updateTour = async (req, res) => {
+  try {
+    const tourId = req.params.id;
+    console.log(req.body);
+    const tour = await Tour.findOneAndUpdate({ _id: tourId }, req.body, {
+      new: true,
+    });
+    console.log(tour);
+    res.send(tour);
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+  }
+};
+
+module.exports = {
+  createUser,
+  getAllTours,
+  createTour,
+  getUser,
+  updateUser,
+  updateTour,
+};
