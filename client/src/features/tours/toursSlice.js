@@ -51,8 +51,10 @@ export const updateTour = createAsyncThunk(
   'tours/updateTour',
   async (tour, ThunkAPI) => {
     try {
-      const { id } = tour;
-      const res = await customFetch.patch(`/tours/${id}`, tour);
+      const { _id } = tour;
+      console.log('tourUpdate from Slice', _id);
+      console.log('tourUpdate from Slice', tour);
+      const res = await customFetch.patch(`/tour/${_id}`, tour);
       return res.data;
     } catch (error) {
       return ThunkAPI.rejectWithValue(error.response.data.msg);
