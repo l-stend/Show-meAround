@@ -91,6 +91,22 @@ const createChat = async (req, res) => {
   }
 };
 
+const updateChat = async (req, res) => {
+  try {
+    const chatId = req.params.id;
+    console.log('req.body   ', req.body);
+    const chat = await Chat.findOneAndUpdate({ id: chatId }, req.body, {
+      new: true,
+    });
+    console.log('chat', chat);
+    res.send(chat);
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+  }
+};
+
 module.exports = {
   createUser,
   getAllTours,
@@ -99,4 +115,5 @@ module.exports = {
   updateUser,
   updateTour,
   createChat,
+  updateChat,
 };

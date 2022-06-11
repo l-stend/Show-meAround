@@ -112,6 +112,7 @@ const TourDetails = () => {
     };
     console.log(chat);
     createChat(chat);
+    navigate('/chats');
   };
 
   ///// ACTUAL THING
