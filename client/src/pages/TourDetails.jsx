@@ -21,6 +21,7 @@ const TourDetails = () => {
     setTour(selectedTour);
   }, []);
 
+  //// REVIEW
   const submitReview = (id) => {
     const newReview = {
       id: uniqid(),
@@ -38,6 +39,7 @@ const TourDetails = () => {
     dispatch(updateTour(updates));
   };
 
+  //// PARTICIPATION
   const signForTour = (id) => {
     const participant = {
       name: user.name,
@@ -59,6 +61,20 @@ const TourDetails = () => {
     }
   };
 
+  const cancelParticipation = (id) => {
+    const existingParticipants = tour.participants;
+    const updates = {
+      _id: id,
+      participants: existingParticipants.filter(
+        (item) => item.email !== user.email
+      ),
+    };
+    dispatch(updateTour(updates));
+    setParticipating(!participating);
+  };
+
+  ///// ACTUAL THING
+
   return (
     <section>
       <h3>TourDetails</h3>
@@ -70,7 +86,7 @@ const TourDetails = () => {
             <button onClick={() => signForTour(selected)}>Participate</button>
           )}
           {user.type === 'traveler' && participating && (
-            <button onClick={() => setParticipating(!participating)}>
+            <button onClick={() => cancelParticipation(selected)}>
               cancel
             </button>
           )}
