@@ -44,7 +44,7 @@ function App() {
               <Route index element={<AllTours />} />
             )}
             <Route path='/profile' element={<LocalProfile />} />
-            <Route path='/chats' element={<TravelerChats />} />
+            <Route path='/chats/:chatId' element={<TravelerChats />} />
             <Route path='/createTour' element={<CreateTour />} />
             <Route path='/tourDetails/:tourId' element={<TourDetails />} />
           </Route>

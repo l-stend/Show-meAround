@@ -8,6 +8,7 @@ const {
   updateTour,
   createChat,
   updateChat,
+  getAllChats,
 } = require('./controllers/controllers');
 
 ///USER
@@ -21,7 +22,7 @@ router.post('/tour', createTour);
 router.patch('/tour/:id', updateTour);
 
 /// CHAT
-// router.get('/chat', getChats);
+router.get('/chats', getAllChats);
 router.post('/chat', createChat);
 router.patch('/chat/:id', updateChat);
 

@@ -107,6 +107,17 @@ const updateChat = async (req, res) => {
   }
 };
 
+const getAllChats = async (req, res) => {
+  try {
+    const chats = await Chat.find({});
+    res.send(chats);
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+  }
+};
+
 module.exports = {
   createUser,
   getAllTours,
@@ -116,4 +127,5 @@ module.exports = {
   updateTour,
   createChat,
   updateChat,
+  getAllChats,
 };
