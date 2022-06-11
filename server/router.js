@@ -6,6 +6,7 @@ const {
   getUser,
   updateUser,
   updateTour,
+  createChat,
 } = require('./controllers/controllers');
 
 ///USER
@@ -17,7 +18,9 @@ router.patch('/user/:email', updateUser);
 router.get('/tours', getAllTours);
 router.post('/tour', createTour);
 router.patch('/tour/:id', updateTour);
+
+/// CHAT
 // router.get('/chat', getChats);
-// router.post('/chat', createChat);
+router.post('/chat', createChat);
 
 module.exports = router;

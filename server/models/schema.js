@@ -19,7 +19,7 @@ const User = mongoose.model('user', userSchema);
 
 const tourSchema = new mongoose.Schema({
   title: String,
-  author: String,
+  author: User.schema,
   description: String,
   startAt: String,
   duration: Number,
@@ -34,9 +34,10 @@ const tourSchema = new mongoose.Schema({
 const Tour = mongoose.model('tour', tourSchema);
 
 const chatSchema = new mongoose.Schema({
-  participants: Array,
-  msgs: Array,
-  createdAt: Date,
+  id: String,
+  userOne: Object,
+  userTwo: Object,
+  time: Date,
 });
 
 const Chat = mongoose.model('chat', chatSchema);

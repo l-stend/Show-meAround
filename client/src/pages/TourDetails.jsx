@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getAllTours, updateTour } from '../features/tours/toursSlice';
+import { createChat } from '../features/chat/ChatUtils';
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
 
@@ -14,6 +15,7 @@ const TourDetails = () => {
   const [participating, setParticipating] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   let selected = params.tourId;
 
   useEffect(() => {
@@ -93,6 +95,25 @@ const TourDetails = () => {
     dispatch(updateTour(updates));
   };
 
+  ////// CHAT
+
+  const messageLocal = (tour) => {
+    const chat = {
+      id: uniqid(),
+      userOne: {
+        name: user.name,
+        msgs: [],
+      },
+      userTwo: {
+        name: tour.author.name,
+        msgs: [],
+      },
+      time: Date.now(),
+    };
+    console.log(chat);
+    createChat(chat);
+  };
+
   ///// ACTUAL THING
 
   return (
@@ -120,7 +141,6 @@ const TourDetails = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-
             <button onClick={() => submitReview(selected)}>Review</button>
           </div>
         )}
@@ -136,10 +156,11 @@ const TourDetails = () => {
           </div>
         )}
       </div>
+      <div>
+        <button onClick={() => messageLocal(tour)}>Message the local</button>
+      </div>
     </section>
   );
 };
 
 export default TourDetails;
-
-// mi serve il link da Mytour per locals

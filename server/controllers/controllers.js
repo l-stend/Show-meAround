@@ -1,4 +1,4 @@
-const { User, Tour } = require('../models/schema');
+const { User, Tour, Chat } = require('../models/schema');
 
 //// USER
 
@@ -80,6 +80,17 @@ const updateTour = async (req, res) => {
   }
 };
 
+///// CHAT
+const createChat = async (req, res) => {
+  try {
+    const chat = await Chat.create(req.body);
+    res.send(chat);
+    res.status(201);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createUser,
   getAllTours,
@@ -87,4 +98,5 @@ module.exports = {
   getUser,
   updateUser,
   updateTour,
+  createChat,
 };

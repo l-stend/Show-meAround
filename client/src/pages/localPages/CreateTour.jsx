@@ -26,7 +26,7 @@ const CreateTour = () => {
 
     const tour = {
       title: e.target.title.value,
-      author: user.email,
+      author: user,
       description: e.target.description.value,
       startAt: e.target.startAt.value,
       duration: e.target.duration.value,
