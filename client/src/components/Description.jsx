@@ -22,8 +22,7 @@ const Description = () => {
           <Card.Text style={{ marginTop: '3vh' }}>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
             nisi distinctio tempore ut adipisci cumque quod inventore omnis
-            laborum sit itaque ullam veniam fuga delectus voluptate iure,
-            nostrum deleniti ipsa possimus alias dolor. Molestias, labore.
+            laborum sit itaque ullam veniam fuga delectus voluptate.
           </Card.Text>
           <Card.Text>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
@@ -33,11 +32,14 @@ const Description = () => {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
             incidunt nobis, esse deserunt ea magnam ab voluptas placeat iusto.
             Quasi in quas animi delectus rem velit. Eum debitis vitae officiis
-            qui, a dignissimos? Nihil laborum, odio molestias eligendi facere
-            voluptatem.
+            qui.
           </Card.Text>
-          <Card.Link href='#'>Max's Mother's website</Card.Link>
-          <Card.Link href='#'>Another Link</Card.Link>
+          <Card.Link style={{ color: '#ff8500' }} href='#'>
+            Max's Mother's website
+          </Card.Link>
+          <Card.Link style={{ color: '#ff8500' }} href='#'>
+            Another Link
+          </Card.Link>
         </Card.Body>
       </Card>
     </section>

@@ -1,0 +1,26 @@
+.tour-card {
+  border: solid 2px black;
+  padding: 1vh;
+  border-radius: 0px;
+}
+
+.details-btn {
+  border: 4px solid #fc585d;
+  background-color: white;
+  color: #ff8500;
+  padding: 0.7vh;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.time-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.day {
+  background-color: #fc585d;
+  color: white;
+  margin: 0.1vw;
+}

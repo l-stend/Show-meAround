@@ -1,8 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { CardGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import Card from '../../components/Card';
+import TourCard from '../../components/Card';
 import { getAllTours } from '../../features/tours/toursSlice';
 
 const MyTours = () => {
@@ -35,9 +36,12 @@ const MyTours = () => {
   return (
     <section>
       <h2>AllTours</h2>
+
+      {/* <CardGroup></CardGroup> */}
       {showTours.map((tour) => {
-        return <Card key={tour._id} tour={{ ...tour }} />;
+        return <TourCard key={tour._id} tour={{ ...tour }} />;
       })}
+
       <button onClick={() => dispatch(getAllTours())}>test</button>
     </section>
   );
