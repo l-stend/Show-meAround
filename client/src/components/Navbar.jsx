@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../features/user/userSlice';
 import { getUserFromLocalStorage } from '../utils/localStorage';
+import './components-style/NavbarStyle.css';
 
 const Navbar = () => {
   // const { user } = useSelector((store) => store.user);
@@ -9,15 +10,25 @@ const Navbar = () => {
   const dispatch = useDispatch();
   return (
     <nav>
-      <h2>⛵ Navbar ⛵</h2>
+      <div>
+        <img className='logo' src='../assets/logoSmA.png' alt='boh' />
+      </div>
       {user?.navLinks?.map((item) => {
         return (
-          <NavLink key={item.name} to={`/${item.url}`}>
-            {item.name}
-          </NavLink>
+          <div className='navbar-link text-center'>
+            <NavLink
+              key={item.name}
+              style={{ color: '#ff8500' }}
+              to={`/${item.url}`}
+            >
+              {item.name}
+            </NavLink>
+          </div>
         );
       })}
-      <button onClick={() => dispatch(logoutUser())}>logout</button>
+      <button className='logout' onClick={() => dispatch(logoutUser())}>
+        logout
+      </button>
     </nav>
   );
 };

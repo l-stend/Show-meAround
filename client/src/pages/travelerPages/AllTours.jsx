@@ -35,7 +35,9 @@ const MyTours = () => {
 
   return (
     <section>
-      <h2>AllTours</h2>
+      <div className='head-text'>
+        <h2 className='text-center'>All the Tours</h2>
+      </div>
 
       {/* <CardGroup></CardGroup> */}
       {showTours.map((tour) => {
