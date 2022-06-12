@@ -5,6 +5,7 @@ import { CardGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import TourCard from '../../components/Card';
 import { getAllTours } from '../../features/tours/toursSlice';
+import '../pages-style/AllTours.css';
 
 const MyTours = () => {
   const dispatch = useDispatch();
@@ -40,9 +41,11 @@ const MyTours = () => {
       </div>
 
       {/* <CardGroup></CardGroup> */}
-      {showTours.map((tour) => {
-        return <TourCard key={tour._id} tour={{ ...tour }} />;
-      })}
+      <div className='show-cards'>
+        {showTours.map((tour) => {
+          return <TourCard key={tour._id} tour={{ ...tour }} />;
+        })}
+      </div>
 
       <button onClick={() => dispatch(getAllTours())}>test</button>
     </section>

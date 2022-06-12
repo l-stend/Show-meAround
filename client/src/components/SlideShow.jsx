@@ -24,7 +24,7 @@ const LandingSlideShow = () => {
       </div>
       <Carousel
         style={{
-          height: '90vh',
+          height: '100vh',
           width: '100vw',
           zIndex: '1',
         }}
@@ -36,7 +36,7 @@ const LandingSlideShow = () => {
             src='https://cdn0.scrvt.com/86f1f1e2d836ca377960c1753403d83d/57b9727cf8e31196/98c78701d823/v/b7dd3f28a5ee/bologna_shutterstock_419143885.jpg'
             alt='First slide'
             style={{
-              height: '90vh',
+              height: '100vh',
               width: '100vw',
               objectFit: 'cover',
               filter: 'brightness(0.85)',
@@ -53,7 +53,7 @@ const LandingSlideShow = () => {
             src='https://www.rainews.it/cropgd/840x480/dl/img/2021/07/1600x900_1627477613077.Bologna_Portici.jpg'
             alt='Second slide'
             style={{
-              height: '90vh',
+              height: '100vh',
               width: '100vw',
               objectFit: 'cover',
               filter: 'brightness(0.85)',
@@ -71,10 +71,10 @@ const LandingSlideShow = () => {
             src='https://www.romolini.com/userfiles/lifestyle/3/1%20centro-storico-in-vendita.JPG'
             alt='Third slide'
             style={{
-              height: '90vh',
+              height: '100vh',
               width: '100vw',
               objectFit: 'cover',
-              filter: 'brightness(0.85)',
+              filter: 'brightness(0.80)',
             }}
           />
 

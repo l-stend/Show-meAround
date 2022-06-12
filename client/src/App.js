@@ -23,7 +23,7 @@ function App() {
   const { user } = useSelector((store) => store.user);
   return (
     <>
-      <h2>🐋 Fraseddha 🐋</h2>
+      {/* <h2>🐋 Fraseddha 🐋</h2> */}
 
       <BrowserRouter>
         <Routes>
