@@ -11,15 +11,31 @@ const MyTours = () => {
   const [showTours, setShowTours] = useState([]);
   const { toursArr, isLoading } = useSelector((store) => store.tours);
 
+  // useEffect(() => {
+  //   dispatch(getAllTours());
+  //   setShowTours(toursArr);
+  // }, []);
+
   useEffect(() => {
-    dispatch(getAllTours());
-    setShowTours(toursArr);
+    (async () => {
+      const toursArr = await dispatch(getAllTours());
+      console.log('toursArr     ', toursArr.payload);
+      setShowTours(toursArr.payload);
+    })();
   }, []);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const thing = await getAllChats();
+  //     setChat(thing.find((item) => item.id === params.chatId));
+  //     console.log(thing.find((item) => item.id === params.chatId));
+  //   })();
+  // }, []);
 
   return (
     <section>
       <h2>AllTours</h2>
-      {showTours?.map((tour) => {
+      {showTours.map((tour) => {
         return <Card key={tour._id} tour={{ ...tour }} />;
       })}
       <button onClick={() => dispatch(getAllTours())}>test</button>
