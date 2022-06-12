@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LandingSlideShow, Description } from '../components';
+import { LandingSlideShow, Description, SignUp } from '../components';
 
 const Landing = () => {
   return (
     <>
       <LandingSlideShow />
-      <Description />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+        }}
+      >
+        <Description />
+        <SignUp />
+      </div>
       <Link to='/sign-up'>Sign up</Link>
     </>
   );

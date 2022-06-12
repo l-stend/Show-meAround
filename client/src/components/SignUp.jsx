@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import './components-style/signUpStyle.css';
 import { Form, Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -48,52 +49,117 @@ const SignUp = () => {
       }, 1000);
     }
   }, [user]);
-  return (
-    <section>
-      {user && <h2>user is there</h2>}
-      <form onSubmit={handleSubmit} className='form'>
-        {!isMember && (
-          <>
-            {/* radiobuttons */}
-            <input
-              type='radio'
-              id='traveler'
-              name='type'
-              value='traveler'
-              // checked='checked'
-            />
-            <label htmlFor='traveler'>Traveler</label>
-            <input type='radio' id='local' name='type' value='local' />
-            <label htmlFor='traveler'>Local</label>
-            <label htmlFor='name'>Name</label>
-            <input type='name' name='name' placeholder='insert your name' />
-          </>
-        )}
-        <label htmlFor='email'>email</label>
-        <input type='email' name='email' placeholder='insert a email' />
-        <label htmlFor='password'>password</label>
-        <input type='password' name='password' />
 
-        {(isMember && <button type='submit'>login</button>) ||
-          (!isMember && <button type='submit'>register</button>)}
-      </form>
-      {!isMember ? (
-        <p>
-          Member already ?
-          <span>
-            <button onClick={() => setIsMember(!isMember)}>
-              Get Logged In
+  ///   RENDERED STUFF
+  return (
+    <section
+      className='sign-up-form'
+      style={{
+        width: '46vw',
+        borderColor: 'black',
+        border: 'solid 2px black',
+        borderRadius: '0px',
+        padding: '0vh 5vw 0vh 5vw',
+        margin: '3vh 1vw 0vh 2vw',
+      }}
+    >
+      {user && <h2>user is there</h2>}
+      <form onSubmit={handleSubmit} className='actual-form'>
+        {!isMember && (
+          <div className='not-member-inputs text-center'>
+            <div className='radio-buttons'>
+              {/* radiobuttons */}
+              <input
+                type='radio'
+                id='traveler'
+                name='type'
+                value='traveler'
+                // checked='checked'
+              />
+              <label htmlFor='traveler' style={{ marginRight: '2vw' }}>
+                Traveler
+              </label>
+              <input type='radio' id='local' name='type' value='local' />
+              <label htmlFor='traveler'>Local</label>
+            </div>
+            <div className='input-group'>
+              <label className='input-label' htmlFor='name'>
+                Name
+              </label>
+              <input
+                className='text-center'
+                type='name'
+                name='name'
+                placeholder='insert your name'
+              />
+            </div>
+          </div>
+        )}
+
+        {/* ALREADY MEMBER INPUTS */}
+        <div className='already-member-inputs'>
+          <div className='input-group text-center'>
+            <label className='input-label' htmlFor='email'>
+              Email
+            </label>
+            <input
+              className='text-center'
+              type='email'
+              name='email'
+              placeholder='insert a email'
+            />
+          </div>
+          <div className='input-group text-center'>
+            <label className='input-label' htmlFor='password'>
+              Password
+            </label>
+            <input className='text-center' type='password' name='password' />
+          </div>
+        </div>
+
+        {/* SUBMIT BUTTON */}
+        <div className='submit-button text-center'>
+          {(isMember && (
+            <button className='sign-up-btn' type='submit'>
+              Login
             </button>
-          </span>
-        </p>
-      ) : (
-        <p>
-          Want to Join ?
-          <span>
-            <button onClick={() => setIsMember(!isMember)}>Sign up</button>
-          </span>
-        </p>
-      )}
+          )) ||
+            (!isMember && (
+              <button className='sign-up-btn' type='submit'>
+                Register
+              </button>
+            ))}
+        </div>
+      </form>
+
+      {/* ALREADY MEMBER? */}
+      <div className='member-already text-center' style={{ marginTop: '3vh' }}>
+        {!isMember ? (
+          <p>
+            Member already ?
+            <span>
+              <button
+                className='member-switch'
+                onClick={() => setIsMember(!isMember)}
+              >
+                Get Logged In
+              </button>
+            </span>
+          </p>
+        ) : (
+          <p>
+            Want to Join ?
+            <span>
+              <button
+                className='member-switch'
+                onClick={() => setIsMember(!isMember)}
+              >
+                Sign up
+              </button>
+            </span>
+          </p>
+        )}
+      </div>
       {user && <button onClick={() => dispatch(logoutUser())}>logout</button>}
     </section>
   );

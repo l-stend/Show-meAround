@@ -6,11 +6,12 @@ const Description = () => {
     <section>
       <Card
         style={{
-          width: '50vw',
+          width: '46vw',
           borderColor: 'black',
+          border: 'solid 2px black',
           borderRadius: '0px',
           padding: '0vh 5vw 0vh 5vw',
-          margin: '2vh 1vw 0vh 2vw',
+          margin: '3vh 1vw 0vh 2vw',
         }}
       >
         <Card.Body>
