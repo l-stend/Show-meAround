@@ -5,6 +5,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getAllTours, updateTour } from '../features/tours/toursSlice';
 import { createChat } from '../features/chat/ChatUtils';
 import { TourInfo, Participants, Reviews, HostDashboard } from '../components';
+import { listAll, ref, getDownloadURL } from 'firebase/storage';
+import { storage } from '../firebase';
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
 
@@ -13,7 +15,8 @@ const TourDetails = () => {
   const { user } = useSelector((store) => store.user);
   const [tour, setTour] = useState(null);
   const [content, setContent] = useState('');
-  // const [participating, setParticipating] = useState(false);
+  const [imageUrls, setImageUrls] = useState([]);
+
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,8 +29,28 @@ const TourDetails = () => {
   useEffect(() => {
     let selectedTour = toursArr.filter((item) => item._id === selected)[0];
     setTour(selectedTour);
+    const imageRef = ref(storage, `tourImages/${tour?.title}`);
+    listAll(imageRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          let prevState = imageUrls;
+          setImageUrls([...prevState, url]);
+        });
+      });
+    });
     console.log('selected', selectedTour);
   }, [toursArr]);
+
+  // useEffect(() => {
+  //   listAll(imageRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         let prevState = imageUrls;
+  //         setImageUrls([...prevState, url]);
+  //       });
+  //     });
+  //   });
+  // }, [toursArr]);
 
   const messageLocal = (tour) => {
     const chat = {
@@ -54,6 +77,7 @@ const TourDetails = () => {
   return (
     <section>
       <h3>TourDetails</h3>
+      <img src={imageUrls[0]} alt='' />
       {tour && <TourInfo tour={tour} />}
       {/* participation */}
       {tour && <Participants tour={tour} />}
