@@ -2,10 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTour } from '../../features/tours/toursSlice';
+import { storage } from '../../firebase';
+import { ref, uploadBytes } from 'firebase/storage';
 
 const CreateTour = () => {
   const { user } = useSelector((state) => state.user);
   const [utilArr, setUtilArr] = useState([]);
+  const [imageUpload, setImageUpload] = useState(null);
+
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -35,6 +39,16 @@ const CreateTour = () => {
     };
     console.log('created tour', tour);
     dispatch(createTour(tour));
+    uploadImage(tour.title);
+  };
+
+  const uploadImage = (pathVal) => {
+    if (imageUpload === null) return;
+
+    const imageRef = ref(storage, `tourImages/${pathVal}/card.png`);
+    uploadBytes(imageRef, imageUpload)
+      .then(() => console.log('img uploaded'))
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -121,6 +135,15 @@ const CreateTour = () => {
           <label htmlFor='duration'>Hours</label>
         </div>
         <button type='submit'>Submit</button>
+        <div>
+          <label htmlFor='img'>Tour Image</label>
+          <input
+            type='file'
+            name='img'
+            onChange={(e) => setImageUpload(e.target.files[0])}
+          />
+          {/* <button onClick={uploadImage}>Upload image</button> */}
+        </div>
       </form>
     </section>
   );

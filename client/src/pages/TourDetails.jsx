@@ -29,93 +29,17 @@ const TourDetails = () => {
     console.log('selected', selectedTour);
   }, [toursArr]);
 
-  //// REVIEW
-
-  // const submitReview = (id) => {
-  //   const newReview = {
-  //     id: uniqid(),
-  //     name: user.name,
-  //     content: content,
-  //     vote: 1,
-  //   };
-
-  //   const existingReviews = tour.reviews;
-  //   const updates = {
-  //     _id: id,
-  //     reviews: [...existingReviews, newReview],
-  //   };
-
-  //   dispatch(updateTour(updates));
-  // };
-
-  // useEffect(() => {
-  //   dispatch(getAllTours());
-  // }, [submitReview]);
-
-  //// PARTICIPATION
-
-  // const signForTour = (id) => {
-  //   const participant = {
-  //     name: user.name,
-  //     email: user.email,
-  //   };
-
-  //   const existingParticipants = tour.participants;
-  //   const updates = {
-  //     _id: id,
-  //     participants: [...existingParticipants, participant],
-  //   };
-
-  //   if (!existingParticipants.some((item) => item.email === user.email)) {
-  //     dispatch(updateTour(updates));
-  //     setParticipating(!participating);
-  //     return;
-  //   } else {
-  //     alert('already participating');
-  //   }
-  // };
-
-  // const cancelParticipation = (id) => {
-  //   const existingParticipants = tour.participants;
-  //   const updates = {
-  //     _id: id,
-  //     participants: existingParticipants.filter(
-  //       (item) => item.email !== user.email
-  //     ),
-  //   };
-  //   dispatch(updateTour(updates));
-  //   setParticipating(!participating);
-  // };
-
-  //// DASHBOARD MSGS
-
-  // const postOnDashboard = (id) => {
-  //   const newMessage = {
-  //     id: uniqid(),
-  //     content: content,
-  //     time: Date.now(),
-  //   };
-
-  //   const existingDashboard = tour.dashboard;
-  //   const updates = {
-  //     _id: id,
-  //     dashboard: [newMessage, ...existingDashboard],
-  //   };
-
-  //   dispatch(updateTour(updates));
-  // };
-
-  ////// CHAT
-
   const messageLocal = (tour) => {
     const chat = {
       id: uniqid(),
       userOne: {
         name: user.name,
+        email: user.email,
         msgs: [],
       },
       userTwo: {
         name: tour.author.name,
+        email: tour.author.email,
         msgs: [],
       },
       time: Date.now(),
@@ -137,47 +61,10 @@ const TourDetails = () => {
         <div>
           <button onClick={() => messageLocal(tour)}>Message the local</button>
         </div>
-        {/* <div>
-          {user.type === 'traveler' && !participating && (
-            <button onClick={() => signForTour(selected)}>Participate</button>
-          )}
-          {user.type === 'traveler' && participating && (
-            <button onClick={() => cancelParticipation(selected)}>
-              cancel
-            </button>
-          )}
-        </div> */}
         {/* reviews */}
         {user.type === 'traveler' && tour && <Reviews tour={tour} />}
-        {/* {user.type === 'traveler' && (
-          <>
-            <div>
-              <input
-                type='text'
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
-              <button onClick={() => submitReview(selected)}>Review</button>
-            </div>
-            <div>
-              {tour?.reviews.map((item) => (
-                <p>review</p>
-              ))}
-            </div>
-          </>
-        )} */}
         {/* dashboard msgs */}
         {user.type === 'local' && tour && <HostDashboard tour={tour} />}
-        {/* {user.type === 'local' && (
-          <div>
-            <input
-              type='text'
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            />
-            <button onClick={() => postOnDashboard(selected)}>Post</button>
-          </div>
-        )} */}
       </div>
     </section>
   );
