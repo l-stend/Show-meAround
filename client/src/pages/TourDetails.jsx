@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getAllTours, updateTour } from '../features/tours/toursSlice';
 import { createChat } from '../features/chat/ChatUtils';
-import { TourInfo, Participants } from '../components';
+import { TourInfo, Participants, Reviews } from '../components';
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
 
@@ -31,22 +31,22 @@ const TourDetails = () => {
 
   //// REVIEW
 
-  const submitReview = (id) => {
-    const newReview = {
-      id: uniqid(),
-      name: user.name,
-      content: content,
-      vote: 1,
-    };
+  // const submitReview = (id) => {
+  //   const newReview = {
+  //     id: uniqid(),
+  //     name: user.name,
+  //     content: content,
+  //     vote: 1,
+  //   };
 
-    const existingReviews = tour.reviews;
-    const updates = {
-      _id: id,
-      reviews: [...existingReviews, newReview],
-    };
+  //   const existingReviews = tour.reviews;
+  //   const updates = {
+  //     _id: id,
+  //     reviews: [...existingReviews, newReview],
+  //   };
 
-    dispatch(updateTour(updates));
-  };
+  //   dispatch(updateTour(updates));
+  // };
 
   // useEffect(() => {
   //   dispatch(getAllTours());
@@ -145,7 +145,8 @@ const TourDetails = () => {
           )}
         </div> */}
         {/* reviews */}
-        {user.type === 'traveler' && (
+        {tour && <Reviews tour={tour} />}
+        {/* {user.type === 'traveler' && (
           <>
             <div>
               <input
@@ -161,7 +162,7 @@ const TourDetails = () => {
               ))}
             </div>
           </>
-        )}
+        )} */}
         {/* dashboard msgs */}
         {user.type === 'local' && (
           <div>

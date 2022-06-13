@@ -5,6 +5,7 @@ import LandingSlideShow from './SlideShow';
 import Description from './Description';
 import TourInfo from './TourInfo';
 import Participants from './Participants';
+import Reviews from './Reviews';
 
 export {
   SignUp,
@@ -14,4 +15,5 @@ export {
   Description,
   TourInfo,
   Participants,
+  Reviews,
 };
