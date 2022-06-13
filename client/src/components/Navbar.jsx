@@ -11,7 +11,11 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <img className='logo' src='../assets/logoSmA.png' alt='boh' />
+        <img
+          className='logo'
+          src={require('../assets/logoSmA.png')}
+          alt='boh'
+        />
       </div>
       {user?.navLinks?.map((item) => {
         return (

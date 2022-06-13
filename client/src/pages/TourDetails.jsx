@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getAllTours, updateTour } from '../features/tours/toursSlice';
 import { createChat } from '../features/chat/ChatUtils';
-import { TourInfo } from '../components';
+import { TourInfo, Participants } from '../components';
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
 
@@ -13,7 +13,7 @@ const TourDetails = () => {
   const { user } = useSelector((store) => store.user);
   const [tour, setTour] = useState(null);
   const [content, setContent] = useState('');
-  const [participating, setParticipating] = useState(false);
+  // const [participating, setParticipating] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,40 +48,44 @@ const TourDetails = () => {
     dispatch(updateTour(updates));
   };
 
+  // useEffect(() => {
+  //   dispatch(getAllTours());
+  // }, [submitReview]);
+
   //// PARTICIPATION
 
-  const signForTour = (id) => {
-    const participant = {
-      name: user.name,
-      email: user.email,
-    };
+  // const signForTour = (id) => {
+  //   const participant = {
+  //     name: user.name,
+  //     email: user.email,
+  //   };
 
-    const existingParticipants = tour.participants;
-    const updates = {
-      _id: id,
-      participants: [...existingParticipants, participant],
-    };
+  //   const existingParticipants = tour.participants;
+  //   const updates = {
+  //     _id: id,
+  //     participants: [...existingParticipants, participant],
+  //   };
 
-    if (!existingParticipants.some((item) => item.email === user.email)) {
-      dispatch(updateTour(updates));
-      setParticipating(!participating);
-      return;
-    } else {
-      alert('already participating');
-    }
-  };
+  //   if (!existingParticipants.some((item) => item.email === user.email)) {
+  //     dispatch(updateTour(updates));
+  //     setParticipating(!participating);
+  //     return;
+  //   } else {
+  //     alert('already participating');
+  //   }
+  // };
 
-  const cancelParticipation = (id) => {
-    const existingParticipants = tour.participants;
-    const updates = {
-      _id: id,
-      participants: existingParticipants.filter(
-        (item) => item.email !== user.email
-      ),
-    };
-    dispatch(updateTour(updates));
-    setParticipating(!participating);
-  };
+  // const cancelParticipation = (id) => {
+  //   const existingParticipants = tour.participants;
+  //   const updates = {
+  //     _id: id,
+  //     participants: existingParticipants.filter(
+  //       (item) => item.email !== user.email
+  //     ),
+  //   };
+  //   dispatch(updateTour(updates));
+  //   setParticipating(!participating);
+  // };
 
   //// DASHBOARD MSGS
 
@@ -128,8 +132,9 @@ const TourDetails = () => {
       <h3>TourDetails</h3>
       {tour && <TourInfo tour={tour} />}
       {/* participation */}
+      {tour && <Participants tour={tour} />}
       <div>
-        <div>
+        {/* <div>
           {user.type === 'traveler' && !participating && (
             <button onClick={() => signForTour(selected)}>Participate</button>
           )}
@@ -138,17 +143,24 @@ const TourDetails = () => {
               cancel
             </button>
           )}
-        </div>
+        </div> */}
         {/* reviews */}
         {user.type === 'traveler' && (
-          <div>
-            <input
-              type='text'
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            />
-            <button onClick={() => submitReview(selected)}>Review</button>
-          </div>
+          <>
+            <div>
+              <input
+                type='text'
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              />
+              <button onClick={() => submitReview(selected)}>Review</button>
+            </div>
+            <div>
+              {tour?.reviews.map((item) => (
+                <p>review</p>
+              ))}
+            </div>
+          </>
         )}
         {/* dashboard msgs */}
         {user.type === 'local' && (
