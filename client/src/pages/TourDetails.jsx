@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getAllTours, updateTour } from '../features/tours/toursSlice';
 import { createChat } from '../features/chat/ChatUtils';
+import { TourInfo } from '../components';
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
 
@@ -19,9 +20,14 @@ const TourDetails = () => {
   let selected = params.tourId;
 
   useEffect(() => {
+    dispatch(getAllTours());
+  }, []);
+
+  useEffect(() => {
     let selectedTour = toursArr.filter((item) => item._id === selected)[0];
     setTour(selectedTour);
-  }, []);
+    console.log('selected', selectedTour);
+  }, [toursArr]);
 
   //// REVIEW
 
@@ -120,8 +126,7 @@ const TourDetails = () => {
   return (
     <section>
       <h3>TourDetails</h3>
-      <h2>{tour?.title}</h2>
-      <h2>{tour?._id}</h2>
+      {tour && <TourInfo tour={tour} />}
       {/* participation */}
       <div>
         <div>
