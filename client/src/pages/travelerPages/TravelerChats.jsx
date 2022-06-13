@@ -50,6 +50,7 @@ const UserChats = () => {
 
   return (
     <section>
+      <side></side>
       <h2>Chats</h2>
       <form onSubmit={sendMessage}>
         <textarea name='content' id='' cols='30' rows='10'></textarea>

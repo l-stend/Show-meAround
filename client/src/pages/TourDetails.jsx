@@ -30,6 +30,8 @@ const TourDetails = () => {
     let selectedTour = toursArr.filter((item) => item._id === selected)[0];
     setTour(selectedTour);
     const imageRef = ref(storage, `tourImages/${tour?.title}`);
+
+    // tour img
     listAll(imageRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
@@ -40,17 +42,6 @@ const TourDetails = () => {
     });
     console.log('selected', selectedTour);
   }, [toursArr]);
-
-  // useEffect(() => {
-  //   listAll(imageRef).then((response) => {
-  //     response.items.forEach((item) => {
-  //       getDownloadURL(item).then((url) => {
-  //         let prevState = imageUrls;
-  //         setImageUrls([...prevState, url]);
-  //       });
-  //     });
-  //   });
-  // }, [toursArr]);
 
   const messageLocal = (tour) => {
     const chat = {
@@ -77,7 +68,7 @@ const TourDetails = () => {
   return (
     <section>
       <h3>TourDetails</h3>
-      <img src={imageUrls[0]} alt='' />
+      <img src={imageUrls[0]} style={{ height: '20vh', width: '20vw' }} />
       {tour && <TourInfo tour={tour} />}
       {/* participation */}
       {tour && <Participants tour={tour} />}
