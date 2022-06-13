@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getAllTours, updateTour } from '../features/tours/toursSlice';
 import { createChat } from '../features/chat/ChatUtils';
-import { TourInfo, Participants, Reviews } from '../components';
+import { TourInfo, Participants, Reviews, HostDashboard } from '../components';
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
 
@@ -89,21 +89,21 @@ const TourDetails = () => {
 
   //// DASHBOARD MSGS
 
-  const postOnDashboard = (id) => {
-    const newMessage = {
-      id: uniqid(),
-      content: content,
-      time: Date.now(),
-    };
+  // const postOnDashboard = (id) => {
+  //   const newMessage = {
+  //     id: uniqid(),
+  //     content: content,
+  //     time: Date.now(),
+  //   };
 
-    const existingDashboard = tour.dashboard;
-    const updates = {
-      _id: id,
-      dashboard: [newMessage, ...existingDashboard],
-    };
+  //   const existingDashboard = tour.dashboard;
+  //   const updates = {
+  //     _id: id,
+  //     dashboard: [newMessage, ...existingDashboard],
+  //   };
 
-    dispatch(updateTour(updates));
-  };
+  //   dispatch(updateTour(updates));
+  // };
 
   ////// CHAT
 
@@ -134,6 +134,9 @@ const TourDetails = () => {
       {/* participation */}
       {tour && <Participants tour={tour} />}
       <div>
+        <div>
+          <button onClick={() => messageLocal(tour)}>Message the local</button>
+        </div>
         {/* <div>
           {user.type === 'traveler' && !participating && (
             <button onClick={() => signForTour(selected)}>Participate</button>
@@ -145,7 +148,7 @@ const TourDetails = () => {
           )}
         </div> */}
         {/* reviews */}
-        {tour && <Reviews tour={tour} />}
+        {user.type === 'traveler' && tour && <Reviews tour={tour} />}
         {/* {user.type === 'traveler' && (
           <>
             <div>
@@ -164,7 +167,8 @@ const TourDetails = () => {
           </>
         )} */}
         {/* dashboard msgs */}
-        {user.type === 'local' && (
+        {user.type === 'local' && tour && <HostDashboard tour={tour} />}
+        {/* {user.type === 'local' && (
           <div>
             <input
               type='text'
@@ -173,10 +177,7 @@ const TourDetails = () => {
             />
             <button onClick={() => postOnDashboard(selected)}>Post</button>
           </div>
-        )}
-      </div>
-      <div>
-        <button onClick={() => messageLocal(tour)}>Message the local</button>
+        )} */}
       </div>
     </section>
   );

@@ -42,7 +42,9 @@ const Reviews = ({ tour }) => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <button onClick={() => submitReview(tour._id)}>Review</button>
+        {user.type === 'traveler' && (
+          <button onClick={() => submitReview(tour._id)}>Review</button>
+        )}
       </div>
       <div>
         {reviewsArr.map((item) => (

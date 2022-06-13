@@ -6,6 +6,7 @@ import Description from './Description';
 import TourInfo from './TourInfo';
 import Participants from './Participants';
 import Reviews from './Reviews';
+import HostDashboard from './HostDashboard';
 
 export {
   SignUp,
@@ -16,4 +17,5 @@ export {
   TourInfo,
   Participants,
   Reviews,
+  HostDashboard,
 };
