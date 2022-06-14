@@ -10,27 +10,34 @@ const UserChats = () => {
   const params = useParams();
   const [chat, setChat] = useState(null);
   const [paramState, setParamState] = useState('');
-  const [conversation, setConversation] = [];
+  const [conversation, setConversation] = useState(chat?.messages);
+
+  useEffect(() => {
+    chat && setConversation(chat.messages);
+    console.log('inside conv   ', conversation);
+  }, [chat]);
+  // useEffect(() => {
+  //   (async () => {
+  //     const conv = await chat.messages;
+  //     await setConversation(conv);
+  //     console.log('inside conv   ', conversation);
+  //   })();
+  // }, []);
 
   useEffect(() => {
     setParamState(params.chatId);
   }, [params]);
-  // console.log(chat);
+  console.log(chat?.messages);
+  console.log('outside conv    ', conversation);
   // console.log('userOne msgs', chat.userOne.msgs);
   // console.log('userTwo msgs', chat.userTwo.msgs);
 
   useEffect(() => {
     (async () => {
       const thing = await getAllChats();
-      await setChat(thing.find((item) => item.id === params.chatId));
-      await getConversation();
+      setChat(thing.find((item) => item.id === params.chatId));
     })();
   }, [paramState]);
-
-  const getConversation = () => {
-    const conv = [...chat.userOne.msgs, ...chat.userTwo.msgs];
-    console.log(conv);
-  };
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -44,11 +51,12 @@ const UserChats = () => {
     };
 
     // if (user.type === 'traveler') {
-    const existingMsgs = chat.messages;
+    const existingMsgs = conversation;
     const update = {
       id: params.chatId,
-      messages: [msg, ...existingMsgs],
+      messages: [...existingMsgs, msg],
     };
+    setConversation([...existingMsgs, msg]);
     addMessage(update);
     // } else {
     //   const existingMsgs = chat.userTwo.msgs;
@@ -67,6 +75,11 @@ const UserChats = () => {
       <side>{/* <LocalChats /> */}</side>
       <h2>Chats</h2>
       {chat?.id}
+      {conversation?.map((msg) => {
+        if (msg.author === 'local') {
+          return <p style={{ color: 'red' }}>{msg.content}</p>;
+        } else return <p>{msg.content}</p>;
+      })}
       <form onSubmit={sendMessage}>
         <textarea name='content' id='' cols='30' rows='10'></textarea>
         <button type='submit'>Send</button>
