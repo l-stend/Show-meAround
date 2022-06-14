@@ -12,6 +12,7 @@ const HostDashboard = ({ tour }) => {
   const postOnDashboard = (id) => {
     const newMessage = {
       id: uniqid(),
+      author: user.name,
       content: content,
       time: Date.now(),
     };
@@ -33,18 +34,20 @@ const HostDashboard = ({ tour }) => {
       <div>
         {dashArr.map((item) => (
           <article key={item.id}>
-            {user.name} : {item.content}
+            {item.author} : {item.content}
           </article>
         ))}
       </div>
-      <div>
-        <input
-          type='text'
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-        <button onClick={() => postOnDashboard(tour._id)}>Post</button>
-      </div>
+      {user.type === 'local' && (
+        <div>
+          <input
+            type='text'
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+          <button onClick={() => postOnDashboard(tour._id)}>Post</button>
+        </div>
+      )}
     </section>
   );
 };

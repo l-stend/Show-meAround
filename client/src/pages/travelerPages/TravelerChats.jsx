@@ -58,6 +58,7 @@ const UserChats = () => {
     };
     setConversation([...existingMsgs, msg]);
     addMessage(update);
+    e.target.content.value = '';
     // } else {
     //   const existingMsgs = chat.userTwo.msgs;
     //   const update = {

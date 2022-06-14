@@ -78,9 +78,9 @@ const TourDetails = () => {
           <button onClick={() => messageLocal(tour)}>Message the local</button>
         </div>
         {/* reviews */}
-        {user.type === 'traveler' && tour && <Reviews tour={tour} />}
+        {tour && <Reviews tour={tour} />}
         {/* dashboard msgs */}
-        {user.type === 'local' && tour && <HostDashboard tour={tour} />}
+        {tour && <HostDashboard tour={tour} />}
       </div>
     </section>
   );

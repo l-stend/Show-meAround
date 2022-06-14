@@ -36,16 +36,17 @@ const Reviews = ({ tour }) => {
 
   return (
     <>
-      <div>
-        <input
-          type='text'
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-        {user.type === 'traveler' && (
+      {user.type === 'traveler' && (
+        <div>
+          <input
+            type='text'
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
           <button onClick={() => submitReview(tour._id)}>Review</button>
-        )}
-      </div>
+        </div>
+      )}
+
       <div>
         {reviewsArr.map((item) => (
           <article>
