@@ -41,11 +41,22 @@ const MyTours = () => {
       </div>
 
       {/* <CardGroup></CardGroup> */}
-      <div className='show-cards'>
-        {showTours.map((tour) => {
-          return <TourCard key={tour._id} tour={{ ...tour }} />;
-        })}
-      </div>
+      {(user.type === 'traveler' && (
+        <div className='show-cards'>
+          {showTours.map((tour) => {
+            return <TourCard key={tour._id} tour={{ ...tour }} />;
+          })}
+        </div>
+      )) ||
+        (user.type === 'local' && (
+          <div className='show-cards'>
+            {showTours
+              .filter((tour) => tour.author.email === user.email)
+              .map((tour) => {
+                return <TourCard key={tour._id} tour={{ ...tour }} />;
+              })}
+          </div>
+        ))}
 
       <button onClick={() => dispatch(getAllTours())}>test</button>
     </section>

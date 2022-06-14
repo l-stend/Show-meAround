@@ -17,6 +17,7 @@ import {
   CreateTour,
   LocalProfile,
   TourDetails,
+  LocalChats,
 } from './pages';
 
 function App() {
@@ -39,12 +40,14 @@ function App() {
           >
             {/* {pagine da cui si potrà accedere dalla shared dashboard} */}
             {user?.type === 'local' ? (
-              <Route index element={<MyTours />} />
+              <Route index element={<AllTours />} />
             ) : (
               <Route index element={<AllTours />} />
             )}
             <Route path='/profile' element={<LocalProfile />} />
-            <Route path='/chats/:chatId' element={<TravelerChats />} />
+            <Route path='/chats' element={<LocalChats />}>
+              <Route path='/chats/:chatId' element={<TravelerChats />} />
+            </Route>
             <Route path='/createTour' element={<CreateTour />} />
             <Route path='/tourDetails/:tourId' element={<TourDetails />} />
           </Route>

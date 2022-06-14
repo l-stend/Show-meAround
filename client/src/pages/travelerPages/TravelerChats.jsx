@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addMessage, getAllChats } from '../../features/chat/ChatUtils';
+import { LocalChats } from '..';
 
 const UserChats = () => {
   const { user } = useSelector((store) => store.user);
@@ -50,7 +51,7 @@ const UserChats = () => {
 
   return (
     <section>
-      <side></side>
+      <side>{/* <LocalChats /> */}</side>
       <h2>Chats</h2>
       <form onSubmit={sendMessage}>
         <textarea name='content' id='' cols='30' rows='10'></textarea>
