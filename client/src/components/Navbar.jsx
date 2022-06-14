@@ -22,7 +22,7 @@ const Navbar = () => {
           <div className='navbar-link text-center'>
             <NavLink
               key={item.name}
-              style={{ color: '#ff8500' }}
+              style={{ color: '#ff8500', textDecoration: 'none' }}
               to={`/${item.url}`}
             >
               {item.name}

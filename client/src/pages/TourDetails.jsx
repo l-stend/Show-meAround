@@ -85,6 +85,7 @@ const TourDetails = () => {
         <div className='rev-dash'>
           {/* reviews */}
           {tour && <Reviews tour={tour} />}
+
           {/* dashboard msgs */}
           {tour && <HostDashboard tour={tour} />}
         </div>
