@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { TravelerChats } from '..';
 import { getAllChats } from '../../features/chat/ChatUtils';
+import moment from 'moment';
+import '../pages-style/LocalChatsStyle.css';
 
 const LocalChats = () => {
   const { user } = useSelector((store) => store.user);
@@ -32,13 +34,21 @@ const LocalChats = () => {
 
   return (
     <main>
-      <section>
-        <h2>LocalChats</h2>
+      <section className='chat-menu'>
         {chatsArr.map((chat) => (
-          <article key={chat.id} onClick={() => navigate(`${chat.id}`)}>
-            <div>{chat.userOne.email}</div>
-            <div>{chat.userTwo.email}</div>
-            <div>{chat.time}</div>
+          <article
+            key={chat.id}
+            onClick={() => navigate(`${chat.id}`)}
+            className='chat-card'
+          >
+            <div className='user-one'>
+              <h3>{chat.userOne.name}</h3>
+            </div>
+            <div className='breaking'></div>
+            <div className='user-two'>
+              <h3>{chat.userTwo.name}</h3>
+            </div>
+            {/* <div>{moment(chat.time).subtract(6, 'days').calendar()}</div> */}
           </article>
         ))}
       </section>

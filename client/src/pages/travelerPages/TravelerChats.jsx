@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addMessage, getAllChats } from '../../features/chat/ChatUtils';
 import { LocalChats } from '..';
+import '../pages-style/TravelersChatStyle.css';
 
 const UserChats = () => {
   const { user } = useSelector((store) => store.user);
@@ -72,18 +73,19 @@ const UserChats = () => {
   };
 
   return (
-    <section>
-      <side>{/* <LocalChats /> */}</side>
-      <h2>Chats</h2>
-      {chat?.id}
-      {conversation?.map((msg) => {
-        if (msg.author === 'local') {
-          return <p style={{ color: 'red' }}>{msg.content}</p>;
-        } else return <p>{msg.content}</p>;
-      })}
-      <form onSubmit={sendMessage}>
-        <textarea name='content' id='' cols='30' rows='10'></textarea>
-        <button type='submit'>Send</button>
+    <section className='chat-body'>
+      <div className='conversation'>
+        {conversation?.map((msg) => {
+          if (msg.author === 'local') {
+            return <div className='local-msg text-end'>{msg.content}</div>;
+          } else return <div className='traveler-msg'>{msg.content}</div>;
+        })}
+      </div>
+      <form className='chat-send-message' onSubmit={sendMessage}>
+        <textarea className='chat-textarea' name='content'></textarea>
+        <button className='chat-send-btn' type='submit'>
+          Send
+        </button>
       </form>
     </section>
   );

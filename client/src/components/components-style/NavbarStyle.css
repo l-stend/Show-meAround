@@ -2,7 +2,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: solid 4px black;
+  border: solid 2px black;
   height: 10vh;
 }
 
@@ -41,4 +41,12 @@ nav {
   margin: 1vh;
   font-size: 19px;
   background-color: white;
+}
+
+.logout:hover {
+  transform: scale(1.1) translate(-2px, 2px);
+  -webkit-box-shadow: 8px 8px 0px 0px #000000;
+  box-shadow: 8px 8px 0px 0px #000000;
+  color: black;
+  transition: 0.5s;
 }

@@ -4,7 +4,13 @@ import { TravelerChats, LocalChats } from '.';
 
 const ChatSystem = () => {
   return (
-    <div>
+    <div
+      className='whole-chat-system'
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
       <LocalChats />
       <Outlet />
     </div>

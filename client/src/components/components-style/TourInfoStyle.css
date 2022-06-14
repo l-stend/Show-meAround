@@ -55,7 +55,7 @@
 
 .line {
   width: 70vw;
-  height: 2vh;
+  height: 3px;
   margin: 7vh 15vw 7vh 15vw;
   border: solid 2px black;
 }
