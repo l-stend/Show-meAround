@@ -49,13 +49,14 @@ const TourDetails = () => {
       userOne: {
         name: user.name,
         email: user.email,
-        msgs: [],
+        // msgs: [],
       },
       userTwo: {
         name: tour.author.name,
         email: tour.author.email,
-        msgs: [],
+        // msgs: [],
       },
+      messages: [],
       time: Date.now(),
     };
     console.log(chat);

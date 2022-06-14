@@ -43,25 +43,23 @@ const UserChats = () => {
       time: Date.now(),
     };
 
-    if (user.type === 'traveler') {
-      const existingMsgs = chat.userOne.msgs;
-      const update = {
-        id: params.chatId,
-        userOne: {
-          msgs: [msg, ...existingMsgs],
-        },
-      };
-      addMessage(update);
-    } else {
-      const existingMsgs = chat.userTwo.msgs;
-      const update = {
-        id: params.chatId,
-        userTwo: {
-          msgs: [msg, ...existingMsgs],
-        },
-      };
-      addMessage(update);
-    }
+    // if (user.type === 'traveler') {
+    const existingMsgs = chat.messages;
+    const update = {
+      id: params.chatId,
+      messages: [msg, ...existingMsgs],
+    };
+    addMessage(update);
+    // } else {
+    //   const existingMsgs = chat.userTwo.msgs;
+    //   const update = {
+    //     id: params.chatId,
+    //     userTwo: {
+    //       msgs: [msg, ...existingMsgs],
+    //     },
+    //   };
+    //   addMessage(update);
+    // }
   };
 
   return (
