@@ -47,29 +47,3 @@ const Description = () => {
 };
 
 export default Description;
-
-{
-  /*<div>
-         <h3>Lorem ipsum dolor sit</h3>
-      </div>
-      <div>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-          nisi distinctio tempore ut adipisci cumque quod inventore omnis
-          laborum sit itaque ullam veniam fuga delectus voluptate iure, nostrum
-          deleniti ipsa possimus alias dolor. Molestias, labore.
-        </p>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-          nisi distinctio tempore ut adipisci cumque quod inventore omnis
-          laborum
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
-          incidunt nobis, esse deserunt ea magnam ab voluptas placeat iusto.
-          Quasi in quas animi delectus rem velit. Eum debitis vitae officiis
-          qui, a dignissimos? Nihil laborum, odio molestias eligendi facere
-          voluptatem.
-        </p>
-      </div> */
-}

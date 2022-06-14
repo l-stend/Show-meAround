@@ -9,6 +9,7 @@ import { listAll, ref, getDownloadURL } from 'firebase/storage';
 import { storage } from '../firebase';
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
+import './pages-style/TourDetailsStyle.css';
 
 const TourDetails = () => {
   const { toursArr, isLoading } = useSelector((store) => store.tours);
@@ -68,19 +69,36 @@ const TourDetails = () => {
 
   return (
     <section>
-      <h3>TourDetails</h3>
-      <img src={imageUrls[0]} style={{ height: '20vh', width: '20vw' }} />
+      <img
+        src={imageUrls[0]}
+        style={{
+          height: '50vh',
+          width: '50vw',
+          margin: '5vh 25vw 5vh 25vw',
+          border: 'solid 4px #ff8500',
+          objectFit: 'cover',
+        }}
+      />
       {tour && <TourInfo tour={tour} />}
       {/* participation */}
-      {tour && <Participants tour={tour} />}
-      <div>
-        <div>
-          <button onClick={() => messageLocal(tour)}>Message the local</button>
+      <div className='below-the-line'>
+        <div className='rev-dash'>
+          {/* reviews */}
+          {tour && <Reviews tour={tour} />}
+          {/* dashboard msgs */}
+          {tour && <HostDashboard tour={tour} />}
         </div>
-        {/* reviews */}
-        {tour && <Reviews tour={tour} />}
-        {/* dashboard msgs */}
-        {tour && <HostDashboard tour={tour} />}
+        <div className='participants'>
+          <div>
+            <button
+              className='msg-the-local'
+              onClick={() => messageLocal(tour)}
+            >
+              Message the local
+            </button>
+          </div>
+          {tour && <Participants tour={tour} />}
+        </div>
       </div>
     </section>
   );

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateTour } from '../features/tours/toursSlice';
 import uniqid from 'uniqid';
 import { useEffect } from 'react';
+import './components-style/ReviewsStyle.css';
+import { Badge } from 'react-bootstrap';
 
 const Reviews = ({ tour }) => {
   const { user } = useSelector((store) => store.user);
@@ -36,24 +38,32 @@ const Reviews = ({ tour }) => {
 
   return (
     <>
+      <h2 className='tex-center'>Reviews</h2>
+
+      <div>
+        {reviewsArr.map((item) => (
+          <article className='single-rev'>
+            <Badge className='reviewer' bg='reviewer'>
+              {item.name}
+            </Badge>{' '}
+            : <p>{item.content}</p>
+          </article>
+        ))}
+      </div>
+
       {user.type === 'traveler' && (
-        <div>
-          <input
+        <div className='rev-console'>
+          <textarea
+            className='rev-textarea'
             type='text'
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <button onClick={() => submitReview(tour._id)}>Review</button>
+          <button className='rev-btn' onClick={() => submitReview(tour._id)}>
+            Review
+          </button>
         </div>
       )}
-
-      <div>
-        {reviewsArr.map((item) => (
-          <article>
-            {item.name} : {item.content}
-          </article>
-        ))}
-      </div>
     </>
   );
 };

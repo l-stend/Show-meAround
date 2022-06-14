@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateTour } from '../features/tours/toursSlice';
 import uniqid from 'uniqid';
+import { Badge } from 'react-bootstrap';
+import './components-style/HostDashboardStyle.css';
 
 const HostDashboard = ({ tour }) => {
   const { user } = useSelector((store) => store.user);
@@ -33,19 +35,28 @@ const HostDashboard = ({ tour }) => {
       <h3>hostdash</h3>
       <div>
         {dashArr.map((item) => (
-          <article key={item.id}>
-            {item.author} : {item.content}
+          <article key={item.id} className='single-dash-msg'>
+            <Badge className='dash-msg' bg='dash-msg'>
+              {item.author}
+            </Badge>{' '}
+            : <p>{item.content}</p>
           </article>
         ))}
       </div>
       {user.type === 'local' && (
-        <div>
+        <div className='dash-console'>
           <input
+            className='dash-textarea'
             type='text'
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <button onClick={() => postOnDashboard(tour._id)}>Post</button>
+          <button
+            className='dash-btn'
+            onClick={() => postOnDashboard(tour._id)}
+          >
+            Post
+          </button>
         </div>
       )}
     </section>
@@ -53,3 +64,12 @@ const HostDashboard = ({ tour }) => {
 };
 
 export default HostDashboard;
+
+{
+  /* <article className='single-rev'>
+  <Badge className='reviewer' bg='reviewer'>
+    {item.name}
+  </Badge>{' '}
+  : <p>{item.content}</p>
+</article>; */
+}

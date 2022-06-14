@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateTour } from '../features/tours/toursSlice';
 import { Badge } from 'react-bootstrap';
 import { useEffect } from 'react';
+import './components-style/ParticipantsStyle.css';
 
 const Participants = ({ tour }) => {
   const [participating, setParticipating] = useState(false);
@@ -72,14 +73,12 @@ const Participants = ({ tour }) => {
         </div>
 
         <div className='paricipate-btn'>
-          {!participating && ( /// con il tasto per cancellare la partecipazione incorporato nel badge non serve più il conditional rendering
-            <button onClick={() => signForTour(tour?._id)}>Participate</button>
-          )}
-          {/* {participating && (
-            <button onClick={() => cancelParticipation(tour?._id)}>
-              cancel
-            </button>
-          )} */}
+          {!participating &&
+            user.type === 'traveler' && ( /// con il tasto per cancellare la partecipazione incorporato nel badge non serve più il conditional rendering
+              <button onClick={() => signForTour(tour?._id)}>
+                Participate
+              </button>
+            )}
         </div>
       </section>
     </>

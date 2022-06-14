@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Badge } from 'react-bootstrap';
+import { Badge, Image } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllTours } from '../features/tours/toursSlice';
 import { listAll, ref, getDownloadURL } from 'firebase/storage';
 import { storage } from '../firebase';
+import './components-style/TourInfoStyle.css';
 
 const TourInfo = ({ tour }) => {
   const [imageUrls, setImageUrls] = useState([]);
@@ -27,31 +28,57 @@ const TourInfo = ({ tour }) => {
 
   return (
     <section>
-      <h2>{tour?.title}</h2>
+      <h2 className='text-center'>{tour?.title}</h2>
       {/* TIME INFO */}
-      <div className='time info'>
+      <div className='time-info'>
         <p>
-          {tour?.days.map((day) => (
-            <Badge key={day}>{day}</Badge>
-          ))}
+          <div className='days'>
+            {tour?.days.map((day) => (
+              <h3>
+                <Badge className='day' bg='day' key={day}>
+                  {day}
+                </Badge>
+              </h3>
+            ))}
+          </div>
         </p>
-        <p>Starts at: {tour?.startAt}</p>
+        <p>
+          Starts at: <span> {tour?.startAt}</span>
+        </p>
         <p>Duration: {tour?.duration} hours</p>
       </div>
       {/* DESCRIPTION */}
-      <div className='description'>
-        <p>{tour?.description}</p>
+      <div className='big-info'>
+        <div className='description'>
+          <p>{tour?.description}</p>
+        </div>
+        {/* AUTHOR INFO */}
+        <div className='author-info'>
+          <Image
+            src={imageUrls[0]}
+            roundedCircle='true'
+            style={{
+              height: '20vh',
+              width: '7vw',
+              border: '4px solid #ff8500',
+              marginBottom: '3vh',
+              marginTop: '1vh',
+            }}
+          />
+          {/* <img src={imageUrls[0]} style={{ height: '20vh', width: '20vw' }} /> */}
+          <p>
+            Hosted by:{' '}
+            <span style={{ fontWeight: 'bold' }}>
+              {' '}
+              {tour?.author.name} {tour?.author.lastName}{' '}
+            </span>
+          </p>
+          <p>
+            About {tour?.author.name}: {tour?.author.aboutMe}
+          </p>
+        </div>
       </div>
-      {/* AUTHOR INFO */}
-      <img src={imageUrls[0]} style={{ height: '20vh', width: '20vw' }} />
-      <div className='author-info'>
-        <p>
-          Hosted by: {tour?.author.name} {tour?.author.lastName}
-        </p>
-        <p>
-          About {tour?.author.name}: {tour?.author.aboutMe}
-        </p>
-      </div>
+      <div className='line'> </div>
     </section>
   );
 };

@@ -16,7 +16,6 @@ const Landing = () => {
         <Description />
         <SignUp />
       </div>
-      <Link to='/sign-up'>Sign up</Link>
     </>
   );
 };
