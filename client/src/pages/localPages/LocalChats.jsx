@@ -2,12 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { TravelerChats } from '..';
 import { getAllChats } from '../../features/chat/ChatUtils';
 
 const LocalChats = () => {
   const { user } = useSelector((store) => store.user);
   const [chatsArr, setChatsArr] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       const bla = await getAllChats();
@@ -32,7 +35,7 @@ const LocalChats = () => {
       <section>
         <h2>LocalChats</h2>
         {chatsArr.map((chat) => (
-          <article>
+          <article key={chat.id} onClick={() => navigate(`${chat.id}`)}>
             <div>{chat.userOne.email}</div>
             <div>{chat.userTwo.email}</div>
             <div>{chat.time}</div>
@@ -40,9 +43,7 @@ const LocalChats = () => {
         ))}
       </section>
 
-      <section>
-        <TravelerChats />
-      </section>
+      <section>{/* <TravelerChats /> */}</section>
     </main>
   );
 };

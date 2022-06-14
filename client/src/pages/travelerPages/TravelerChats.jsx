@@ -9,24 +9,39 @@ const UserChats = () => {
   const { user } = useSelector((store) => store.user);
   const params = useParams();
   const [chat, setChat] = useState(null);
+  const [paramState, setParamState] = useState('');
+  const [conversation, setConversation] = [];
+
+  useEffect(() => {
+    setParamState(params.chatId);
+  }, [params]);
+  // console.log(chat);
+  // console.log('userOne msgs', chat.userOne.msgs);
+  // console.log('userTwo msgs', chat.userTwo.msgs);
 
   useEffect(() => {
     (async () => {
       const thing = await getAllChats();
-      setChat(thing.find((item) => item.id === params.chatId));
-      console.log(thing.find((item) => item.id === params.chatId));
+      await setChat(thing.find((item) => item.id === params.chatId));
+      await getConversation();
     })();
-    // getAllChats().map((item) => console.log(' la mamma di max'));
-    // const thing = getAllChats().find((item) => item.id === params.chatId);
-    // setChat(thing);
-  }, []);
+  }, [paramState]);
+
+  const getConversation = () => {
+    const conv = [...chat.userOne.msgs, ...chat.userTwo.msgs];
+    console.log(conv);
+  };
 
   const sendMessage = (e) => {
     e.preventDefault();
     console.log(e.target.content.value);
     console.log(params.chatId);
 
-    const msg = e.target.content.value;
+    const msg = {
+      content: e.target.content.value,
+      author: user.type,
+      time: Date.now(),
+    };
 
     if (user.type === 'traveler') {
       const existingMsgs = chat.userOne.msgs;
@@ -53,6 +68,7 @@ const UserChats = () => {
     <section>
       <side>{/* <LocalChats /> */}</side>
       <h2>Chats</h2>
+      {chat?.id}
       <form onSubmit={sendMessage}>
         <textarea name='content' id='' cols='30' rows='10'></textarea>
         <button type='submit'>Send</button>

@@ -10,6 +10,7 @@ import LocalChats from './localPages/LocalChats';
 import LocalProfile from './localPages/LocalProfile';
 import MyTours from './localPages/MyTours';
 import TourDetails from './TourDetails';
+import ChatSystem from './ChatSystem';
 
 export {
   Dashboard,
@@ -24,4 +25,5 @@ export {
   LocalProfile,
   MyTours,
   TourDetails,
+  ChatSystem,
 };

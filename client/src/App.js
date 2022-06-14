@@ -18,6 +18,7 @@ import {
   LocalProfile,
   TourDetails,
   LocalChats,
+  ChatSystem,
 } from './pages';
 
 function App() {
@@ -45,7 +46,10 @@ function App() {
               <Route index element={<AllTours />} />
             )}
             <Route path='/profile' element={<LocalProfile />} />
-            <Route path='/chats' element={<LocalChats />}>
+            {/* <Route path='/chats' element={<LocalChats />}>
+              <Route path='/chats/:chatId' element={<TravelerChats />} />
+            </Route> */}
+            <Route path='/chats' element={<ChatSystem />}>
               <Route path='/chats/:chatId' element={<TravelerChats />} />
             </Route>
             <Route path='/createTour' element={<CreateTour />} />
