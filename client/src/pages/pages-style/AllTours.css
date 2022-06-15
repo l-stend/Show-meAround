@@ -2,6 +2,27 @@
   margin-top: 3vh;
   margin-bottom: 3vh;
 }
+.head-text > h2 {
+  position: relative;
+}
+
+.head-text > h2:after {
+  content: '';
+  position: absolute;
+  width: 30vw;
+  margin-left: 35vw;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: -5px;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.head-text > h2:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 .show-cards {
   display: flex;

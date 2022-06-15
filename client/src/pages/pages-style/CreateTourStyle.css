@@ -1,0 +1,75 @@
+.create-tour-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5vh 20vw 0 20vw;
+  padding: 3vh 5vw 3vh 5vw;
+  border: 1px solid black;
+  height: 75vh;
+}
+
+.create-tour-title {
+  position: relative;
+}
+
+.create-tour-title:after {
+  content: '';
+  position: absolute;
+  width: 30vw;
+  margin-left: 35vw;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: -5px;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.create-tour-title:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.create-tour-input {
+  padding: 1vh 0 1vh 0;
+}
+
+.create-tour-btn {
+  padding-top: 2vh;
+  margin-top: 2vh;
+  transition: 0.5s;
+  border: 4px solid #fc585d;
+  background-color: white;
+  color: #ff8500;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.create-tour-btn:hover {
+  transform: scale(1.1) translate(-2px, 2px);
+  -webkit-box-shadow: 8px 8px 0px 0px #000000;
+  box-shadow: 8px 8px 0px 0px #000000;
+  color: black;
+}
+
+.tour-img-input {
+  margin: 2vw;
+}
+
+.tour-img-btn {
+  padding-top: 2vh;
+  margin-top: 2vh;
+  transition: 0.5s;
+  border: 4px solid #fc585d;
+  background-color: white;
+  color: #ff8500;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.tour-img-btn:hover {
+  transform: scale(1.1) translate(-2px, 2px);
+  -webkit-box-shadow: 8px 8px 0px 0px #000000;
+  box-shadow: 8px 8px 0px 0px #000000;
+  color: black;
+}

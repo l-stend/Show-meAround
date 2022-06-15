@@ -5,7 +5,7 @@
 .chat-card {
   width: 18vw;
   height: 10vh;
-  border: solid 4px black;
+  border: solid 3px black;
   margin: 1vh;
   display: flex;
   flex-direction: row;
@@ -24,15 +24,15 @@
 
 .user-one {
   border: solid 4px #fc585d;
-  color: white;
-  background-color: #ff8500;
+  /* color: white; */
+  /* background-color: #ff8500; */
   font-weight: bold;
   transition: 0.5s;
 }
 .user-two {
   border: solid 4px #ff8500;
-  color: white;
-  background-color: #fc585d;
+  /* color: white; */
+  /* background-color: #fc585d; */
   font-weight: bold;
   transition: 0.5s;
 }

@@ -59,3 +59,25 @@
   margin: 7vh 15vw 7vh 15vw;
   border: solid 2px black;
 }
+
+.tour-info-title {
+  position: relative;
+}
+
+.tour-info-title:after {
+  content: '';
+  position: absolute;
+  width: 30vw;
+  margin-left: 35vw;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: -5px;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.tour-info-title:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

@@ -28,7 +28,7 @@ const TourInfo = ({ tour }) => {
 
   return (
     <section>
-      <h2 className='text-center'>{tour?.title}</h2>
+      <h2 className='text-center tour-info-title'>{tour?.title}</h2>
       {/* TIME INFO */}
       <div className='tour-details-time-info'>
         <p>
