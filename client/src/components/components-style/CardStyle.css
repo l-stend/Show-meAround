@@ -1,9 +1,19 @@
 .tour-card {
   border: solid 2px black;
+  margin-bottom: 5vh;
   padding: 1vh;
   border-radius: 0px;
-  height: 70vh;
+  height: 55vh;
   margin-top: 3vh;
+  transition: 0.5s;
+}
+
+.tour-card:hover {
+  transform: scale(1.1) translate(-2px, 2px);
+  -webkit-box-shadow: 8px 8px 0px 0px #000000;
+  box-shadow: 8px 8px 0px 0px #000000;
+  color: black;
+  /* box-shadow: ; */
 }
 
 .details-btn {
@@ -13,6 +23,15 @@
   padding: 0.7vh;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.5s;
+}
+
+.details-btn:hover {
+  transform: scale(1.1) translate(2px, -2px);
+  -webkit-box-shadow: -8px -8px 0px 0px #000000;
+  box-shadow: -8px -8px 0px 0px #000000;
+  color: black;
+  /* box-shadow: ; */
 }
 
 .time-info {

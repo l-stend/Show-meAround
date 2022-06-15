@@ -30,7 +30,7 @@ const TourInfo = ({ tour }) => {
     <section>
       <h2 className='text-center'>{tour?.title}</h2>
       {/* TIME INFO */}
-      <div className='time-info'>
+      <div className='tour-details-time-info'>
         <p>
           <div className='days'>
             {tour?.days.map((day) => (

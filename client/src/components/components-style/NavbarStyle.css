@@ -24,6 +24,7 @@ nav {
   color: #ff8500 !important;
   /* padding-top: 8px; */
   transition: 0.5s;
+  line-height: 2em;
 }
 
 .navbar-link:hover {

@@ -1,7 +1,7 @@
 /* img {
   border-radius: 50%;
 } */
-.time-info {
+.tour-details-time-info {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -9,7 +9,7 @@
   margin-top: 5vh;
 }
 
-.time-info > p {
+.tour-details-time-info > p {
   margin: 0 8vw 0 8vw;
 }
 
