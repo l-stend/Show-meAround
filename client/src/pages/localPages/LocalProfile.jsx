@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { addUserToLocalStorage } from '../../utils/localStorage';
 import { storage } from '../../firebase';
 import { ref, uploadBytes } from 'firebase/storage';
+import '../pages-style/LocalProfileStyle.css';
 
 const LocalProfile = () => {
   const { user } = useSelector((store) => store.user);
@@ -38,27 +39,47 @@ const LocalProfile = () => {
 
   return (
     <section>
-      <h2>LocalProfile</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='name'>Name</label>
-        <input type='text' name='name' />
-        <label htmlFor='surname'>Surname</label>
-        <input type='text' name='surname' />
-        <label htmlFor='aboutMe'>About Me</label>
-        <textarea id='textarea' name='aboutMe' rows='4' cols='50' />
-
-        <button type='submit'>submit</button>
-      </form>
-
-      <div>
-        <label htmlFor='img'>Profile Image</label>
-        <input
-          type='file'
-          name='img'
-          onChange={(e) => setImageUpload(e.target.files[0])}
+      <h2 className='text-center' style={{ marginTop: '3vh' }}>
+        Update your Profile
+      </h2>
+      <form className='profile-form' onSubmit={handleSubmit}>
+        <label className='profile-input' htmlFor='name'>
+          Name
+        </label>
+        <input className='profile-input' type='text' name='name' />
+        <label className='profile-input' htmlFor='surname'>
+          Surname
+        </label>
+        <input className='profile-input' type='text' name='surname' />
+        <label className='profile-input' htmlFor='aboutMe'>
+          About Me
+        </label>
+        <textarea
+          className='profile-input'
+          id='textarea'
+          name='aboutMe'
+          rows='4'
+          cols='50'
         />
-        <button onClick={uploadImage}>Update image</button>
-      </div>
+
+        <button className='profile-input profile-input-btn' type='submit'>
+          submit
+        </button>
+        <div style={{ paddingTop: '2vh' }}>
+          <label className='profile-input' htmlFor='img'>
+            Profile Image
+          </label>
+          <input
+            type='file'
+            name='img'
+            onChange={(e) => setImageUpload(e.target.files[0])}
+            className='profile-input'
+          />
+          <button className='profile-input' onClick={uploadImage}>
+            Update image
+          </button>
+        </div>
+      </form>
     </section>
   );
 };

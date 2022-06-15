@@ -1,0 +1,29 @@
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5vh 20vw 0 20vw;
+  padding: 3vh 5vw 3vh 5vw;
+  border: 1px solid black;
+}
+
+.profile-input {
+  padding: 1vh 0 1vh 0;
+}
+
+.profile-input-btn {
+  padding-top: 2vh;
+  margin-top: 2vh;
+  transition: 0.5s;
+  border: 4px solid #fc585d;
+  background-color: white;
+  color: #ff8500;
+  font-weight: bold;
+}
+
+.profile-input-btn:hover {
+  transform: scale(1.1) translate(-2px, 2px);
+  -webkit-box-shadow: 8px 8px 0px 0px #000000;
+  box-shadow: 8px 8px 0px 0px #000000;
+  color: black;
+}
