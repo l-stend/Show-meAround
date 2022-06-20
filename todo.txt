@@ -1,6 +1,22 @@
+🔴🔴 aprire nuovo branch e risistemare tutti i file nelle cartelle
+🔴🔴 capire come gestire la selezione la partecipazione al tour(giorni della settimana)
+🔴🔴 evntualmente creare un refresh delle partecipazioni dopo il reale svolgimento tour
+🔴🔴 controllare il funzionamento dell'aperture della chat nel profilo di un altro utente dopo aver inviato un messaggio(probabilmente dimenticato di effettuare i filtri dopo aver invocato getAllChats)
+🔴🔴 css della chat
 
 🔴 cancella cartella utils da components
+🔴 ripulire i form di creazione tour e update utente dopo l'invio dei dati
+🔴 capire perchè i toast non funzionano e modificarne lo stile 
+🔴 implementare controllo dati e campi di inserimento prima dell'invio dei form
+🔴 styling delle barre di scorrimento 
+🔴 eliminare tasti test
+🔴 pulire tutti i console.log
+🔴 aggiungere un campo "small description" nella creazione della chat e nelle cards
+🔴creare versione bianca del logo da far apparire nello slideshow della landing page
 
-🐛 i tour di allTours non vengono ricaricati al refresh della pagina => creare delle funzioni per salvare i tour nel localStorage, svuotarlo al logout dell'utente
 
-🔴 usa la stessa pagina all tours per locals e travelers, per locals filtra sempliement i tours con la stessa email  
+🆕🆕 implemtntare sistema di localizzazione
+🆕 implemtare sistema rating
+🆕 capire come inviare notifice
+🆕 passare da modalità local a modalità traveler e viceversa
+🆕 implementare sistema filtri per allTours

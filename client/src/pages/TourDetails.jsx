@@ -70,7 +70,10 @@ const TourDetails = () => {
   return (
     <section>
       <img
-        src={imageUrls[0]}
+        src={
+          imageUrls[0] ||
+          'https://cdn0.scrvt.com/86f1f1e2d836ca377960c1753403d83d/57b9727cf8e31196/98c78701d823/v/b7dd3f28a5ee/bologna_shutterstock_419143885.jpg'
+        }
         style={{
           height: '50vh',
           width: '50vw',

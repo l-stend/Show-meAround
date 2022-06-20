@@ -10,23 +10,6 @@ const TourCard = ({ tour }) => {
   const imageRef = ref(storage, `tourImages/${tour.title}`);
   const [imageUrls, setImageUrls] = useState([]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     let referenceArr = await listAll(imageRef).then((response) => {
-  //       referenceArr = response.items;
-  //     });
-  //     console.log(referenceArr);
-  //   })();
-  // }, []);
-
-  // let referenceArr = listAll(imageRef).then((response) => {
-  //   referenceArr = response.items;
-  // });
-  // console.log(referenceArr);
-  // useEffect(() => {
-  //   listAll(imageRef).then((response) => console.log(response));
-  // }, []);
-
   useEffect(() => {
     listAll(imageRef).then((response) => {
       response.items.forEach((item) => {
@@ -42,7 +25,6 @@ const TourCard = ({ tour }) => {
     <Card style={{ width: '22rem' }} className='tour-card'>
       <Card.Img
         variant='top'
-        // src='https://cdn0.scrvt.com/86f1f1e2d836ca377960c1753403d83d/57b9727cf8e31196/98c78701d823/v/b7dd3f28a5ee/bologna_shutterstock_419143885.jpg'
         src={
           imageUrls[0] ||
           'https://cdn0.scrvt.com/86f1f1e2d836ca377960c1753403d83d/57b9727cf8e31196/98c78701d823/v/b7dd3f28a5ee/bologna_shutterstock_419143885.jpg'
@@ -86,10 +68,3 @@ const TourCard = ({ tour }) => {
 };
 
 export default TourCard;
-
-{
-  /* <div>
-      <h2>{tour.title}</h2>
-      <Link to={`/tourDetails/${tour._id}`}>Details</Link>
-    </div> */
-}

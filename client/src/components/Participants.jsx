@@ -8,9 +8,9 @@ import './components-style/ParticipantsStyle.css';
 
 const Participants = ({ tour }) => {
   const [participating, setParticipating] = useState(false);
+  const [componentArr, setComponentArr] = useState(tour.participants);
   const { user } = useSelector((store) => store.user);
   const { tours } = useSelector((store) => store.tours);
-  const [componentArr, setComponentArr] = useState(tour.participants);
   const dispatch = useDispatch();
 
   useEffect(() => {
