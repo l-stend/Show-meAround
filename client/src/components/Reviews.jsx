@@ -12,10 +12,6 @@ const Reviews = ({ tour }) => {
   const [reviewsArr, setReviewsArr] = useState(tour.reviews);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   setReviewsArr(tour.reviews);asd
-  // });
-
   console.log('revs arr  ', reviewsArr);
 
   const submitReview = (id) => {
