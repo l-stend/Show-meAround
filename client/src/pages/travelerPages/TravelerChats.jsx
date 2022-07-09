@@ -15,23 +15,11 @@ const UserChats = () => {
 
   useEffect(() => {
     chat && setConversation(chat.messages);
-    console.log('inside conv   ', conversation);
   }, [chat]);
-  // useEffect(() => {
-  //   (async () => {
-  //     const conv = await chat.messages;
-  //     await setConversation(conv);
-  //     console.log('inside conv   ', conversation);
-  //   })();
-  // }, []);
 
   useEffect(() => {
     setParamState(params.chatId);
   }, [params]);
-  console.log(chat?.messages);
-  console.log('outside conv    ', conversation);
-  // console.log('userOne msgs', chat.userOne.msgs);
-  // console.log('userTwo msgs', chat.userTwo.msgs);
 
   useEffect(() => {
     (async () => {
@@ -42,8 +30,6 @@ const UserChats = () => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    console.log(e.target.content.value);
-    console.log(params.chatId);
 
     const msg = {
       content: e.target.content.value,
@@ -51,7 +37,6 @@ const UserChats = () => {
       time: Date.now(),
     };
 
-    // if (user.type === 'traveler') {
     const existingMsgs = conversation;
     const update = {
       id: params.chatId,
@@ -60,16 +45,6 @@ const UserChats = () => {
     setConversation([...existingMsgs, msg]);
     addMessage(update);
     e.target.content.value = '';
-    // } else {
-    //   const existingMsgs = chat.userTwo.msgs;
-    //   const update = {
-    //     id: params.chatId,
-    //     userTwo: {
-    //       msgs: [msg, ...existingMsgs],
-    //     },
-    //   };
-    //   addMessage(update);
-    // }
   };
 
   return (

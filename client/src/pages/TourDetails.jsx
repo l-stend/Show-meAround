@@ -41,7 +41,6 @@ const TourDetails = () => {
         });
       });
     });
-    console.log('selected', selectedTour);
   }, [toursArr]);
 
   const messageLocal = (tour) => {
@@ -50,17 +49,14 @@ const TourDetails = () => {
       userOne: {
         name: user.name,
         email: user.email,
-        // msgs: [],
       },
       userTwo: {
         name: tour.author.name,
         email: tour.author.email,
-        // msgs: [],
       },
       messages: [],
       time: Date.now(),
     };
-    console.log(chat);
     createChat(chat);
     navigate(`/chats/${chat.id}`);
   };

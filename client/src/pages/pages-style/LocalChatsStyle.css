@@ -19,20 +19,15 @@
   -webkit-box-shadow: 8px 8px 0px 0px #000000;
   box-shadow: 8px 8px 0px 0px #000000;
   color: black;
-  /* box-shadow: ; */
 }
 
 .user-one {
   border: solid 4px #fc585d;
-  /* color: white; */
-  /* background-color: #ff8500; */
   font-weight: bold;
   transition: 0.5s;
 }
 .user-two {
   border: solid 4px #ff8500;
-  /* color: white; */
-  /* background-color: #fc585d; */
   font-weight: bold;
   transition: 0.5s;
 }

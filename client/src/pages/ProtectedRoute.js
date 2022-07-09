@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { getUserFromLocalStorage } from '../utils/localStorage';
 
 const ProtectedRoute = ({ children }) => {
-  // const { user } = useSelector((state) => state.user);
   const user = getUserFromLocalStorage();
 
   if (!user) {

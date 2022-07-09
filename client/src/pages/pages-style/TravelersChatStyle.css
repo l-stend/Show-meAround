@@ -1,6 +1,5 @@
 .chat-body {
   margin-top: 2vh;
-  /* margin-left: 7.5vw; */
   width: 80vw;
 
   display: flex;
@@ -61,5 +60,4 @@
   -webkit-box-shadow: 8px 8px 0px 0px #000000;
   box-shadow: 8px 8px 0px 0px #000000;
   color: black;
-  /* box-shadow: ; */
 }

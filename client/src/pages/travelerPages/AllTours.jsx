@@ -13,26 +13,12 @@ const MyTours = () => {
   const [showTours, setShowTours] = useState([]);
   const { toursArr, isLoading } = useSelector((store) => store.tours);
 
-  // useEffect(() => {
-  //   dispatch(getAllTours());
-  //   setShowTours(toursArr);
-  // }, []);
-
   useEffect(() => {
     (async () => {
       const toursArr = await dispatch(getAllTours());
-      console.log('toursArr     ', toursArr.payload);
       setShowTours(toursArr.payload);
     })();
   }, []);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const thing = await getAllChats();
-  //     setChat(thing.find((item) => item.id === params.chatId));
-  //     console.log(thing.find((item) => item.id === params.chatId));
-  //   })();
-  // }, []);
 
   return (
     <section>
