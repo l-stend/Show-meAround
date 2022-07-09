@@ -22,7 +22,6 @@ nav {
   margin: 1vh;
   font-size: 23px;
   color: #ff8500 !important;
-  /* padding-top: 8px; */
   transition: 0.5s;
   line-height: 2em;
 }
@@ -32,7 +31,6 @@ nav {
   -webkit-box-shadow: 8px 8px 0px 0px #000000;
   box-shadow: 8px 8px 0px 0px #000000;
   color: black;
-  /* box-shadow: ; */
 }
 
 .logout {
