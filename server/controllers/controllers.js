@@ -27,11 +27,9 @@ const getUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const userEmail = req.params.email;
-    console.log(req.body);
     const user = await User.findOneAndUpdate({ email: userEmail }, req.body, {
       new: true,
     });
-    console.log(user);
     res.send(user);
     res.status(200);
   } catch (error) {
@@ -52,7 +50,6 @@ const getAllTours = async (req, res) => {
     res.status(500);
   }
 };
-// .sort({ cratedAt: 1 })  da chiamare dopo Tour.find
 
 const createTour = async (req, res) => {
   try {
@@ -67,11 +64,9 @@ const createTour = async (req, res) => {
 const updateTour = async (req, res) => {
   try {
     const tourId = req.params.id;
-    console.log(req.body);
     const tour = await Tour.findOneAndUpdate({ _id: tourId }, req.body, {
       new: true,
     });
-    console.log(tour);
     res.send(tour);
     res.status(200);
   } catch (error) {
@@ -94,11 +89,9 @@ const createChat = async (req, res) => {
 const updateChat = async (req, res) => {
   try {
     const chatId = req.params.id;
-    console.log('req.body   ', req.body);
     const chat = await Chat.findOneAndUpdate({ id: chatId }, req.body, {
       new: true,
     });
-    console.log('chat', chat);
     res.send(chat);
     res.status(200);
   } catch (error) {
