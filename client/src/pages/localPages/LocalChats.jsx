@@ -59,8 +59,3 @@ const LocalChats = () => {
 };
 
 export default LocalChats;
-
-// const bla = getAllChats();
-// setChatsArr(bla);
-// console.log(chatsArr);
-// console.log('cristo');

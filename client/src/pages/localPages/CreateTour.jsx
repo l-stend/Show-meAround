@@ -25,9 +25,7 @@ const CreateTour = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submitting');
     let arr = e.target.days;
-    console.log(arr, 'dslfjhsd');
 
     const tour = {
       title: e.target.title.value,
@@ -38,7 +36,6 @@ const CreateTour = () => {
       days: utilArr,
       createdAt: Date.now(),
     };
-    console.log('created tour', tour);
     dispatch(createTour(tour));
     uploadImage(tour.title);
   };
@@ -184,7 +181,6 @@ const CreateTour = () => {
             onChange={(e) => setImageUpload(e.target.files[0])}
             className='tour-img-btn'
           />
-          {/* <button onClick={uploadImage}>Upload image</button> */}
         </div>
       </form>
     </section>
