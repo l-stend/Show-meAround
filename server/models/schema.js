@@ -49,7 +49,7 @@ const msgSchema = new mongoose.Schema({
   time: Date,
 });
 
-const Msg = mongoose.model('msg', msgSchema); // do I even need it ❓❓
+const Msg = mongoose.model('msg', msgSchema);
 
 const reviewsSchema = new mongoose.Schema({
   author: User.schema,
