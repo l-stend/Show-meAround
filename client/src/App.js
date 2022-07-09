@@ -25,8 +25,6 @@ function App() {
   const { user } = useSelector((store) => store.user);
   return (
     <>
-      {/* <h2>🐋 Fraseddha 🐋</h2> */}
-
       <BrowserRouter>
         <Routes>
           <Route path='landing' element={<Landing />} />
@@ -39,16 +37,12 @@ function App() {
               </ProtectedRoute>
             }
           >
-            {/* {pagine da cui si potrà accedere dalla shared dashboard} */}
             {user?.type === 'local' ? (
               <Route index element={<AllTours />} />
             ) : (
               <Route index element={<AllTours />} />
             )}
             <Route path='/profile' element={<LocalProfile />} />
-            {/* <Route path='/chats' element={<LocalChats />}>
-              <Route path='/chats/:chatId' element={<TravelerChats />} />
-            </Route> */}
             <Route path='/chats' element={<ChatSystem />}>
               <Route path='/chats/:chatId' element={<TravelerChats />} />
             </Route>
