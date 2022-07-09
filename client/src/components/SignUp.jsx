@@ -69,13 +69,7 @@ const SignUp = () => {
           <div className='not-member-inputs text-center'>
             <div className='radio-buttons'>
               {/* radiobuttons */}
-              <input
-                type='radio'
-                id='traveler'
-                name='type'
-                value='traveler'
-                // checked='checked'
-              />
+              <input type='radio' id='traveler' name='type' value='traveler' />
               <label htmlFor='traveler' style={{ marginRight: '2vw' }}>
                 Traveler
               </label>

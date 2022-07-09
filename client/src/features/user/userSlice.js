@@ -33,7 +33,6 @@ export const registerUser = createAsyncThunk(
       console.log(newUser);
       if (newUser) {
         const res = await customFetch.post('/register', user);
-        console.log(res.data);
         return res.data;
       } else {
         throw new Error();

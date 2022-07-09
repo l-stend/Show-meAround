@@ -17,7 +17,6 @@ const LandingSlideShow = () => {
           height: '80vh',
           zIndex: '10',
         }}
-        // className='container text-center'
       >
         <h1>Show meAround</h1>
         <h3>Nulla vitae elit libero, a pharetra augue mollis interdum</h3>

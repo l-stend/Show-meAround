@@ -64,12 +64,3 @@ const HostDashboard = ({ tour }) => {
 };
 
 export default HostDashboard;
-
-{
-  /* <article className='single-rev'>
-  <Badge className='reviewer' bg='reviewer'>
-    {item.name}
-  </Badge>{' '}
-  : <p>{item.content}</p>
-</article>; */
-}

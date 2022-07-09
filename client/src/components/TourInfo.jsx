@@ -16,15 +16,12 @@ const TourInfo = ({ tour }) => {
         getDownloadURL(item).then((url) => {
           let prevState = imageUrls;
           setImageUrls([...prevState, url]);
-          console.log('suca ', imageUrls);
         });
       });
     });
   }, []);
 
-  useEffect(() => {
-    console.log('mannaggia cristo');
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <section>

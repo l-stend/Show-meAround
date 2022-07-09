@@ -17,7 +17,6 @@ const Participants = ({ tour }) => {
     if (tour.participants.some((item) => item.email === user.email)) {
       setParticipating(true);
     }
-    console.log('comp Arr', componentArr);
   }, []);
 
   const signForTour = (id) => {
@@ -83,7 +82,6 @@ const Participants = ({ tour }) => {
                   </svg>
                 </Badge>
               </button>
-              {/* <Badge key={participant.email}>{participant.name}</Badge> */}
             </h3>
           ))}
         </div>

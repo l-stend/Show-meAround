@@ -3,7 +3,6 @@ import customFetch from '../../utils/axios';
 export const getAllChats = async () => {
   try {
     const res = await customFetch.get('/chats');
-    console.log(res.data);
     return res.data;
   } catch (error) {
     console.log(error);

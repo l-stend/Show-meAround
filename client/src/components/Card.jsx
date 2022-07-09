@@ -49,7 +49,6 @@ const TourCard = ({ tour }) => {
             ))}
           </article>
         </div>
-        {/* <Card.Text>{tour.description.slice(0, 60)}...</Card.Text> */}
         <Card.Text>
           Hosted by:
           <span style={{ color: '#ff8500' }}> {tour.author.name}</span>

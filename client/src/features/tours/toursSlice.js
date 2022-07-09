@@ -39,7 +39,6 @@ export const createTour = createAsyncThunk(
   async (user, ThunkAPI) => {
     try {
       const res = await customFetch.post('/tour', user);
-      console.log('res.data    ', res.data);
       return res.data;
     } catch (error) {
       return ThunkAPI.rejectWithValue(error.response.data.msg);
