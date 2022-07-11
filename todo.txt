@@ -3,6 +3,7 @@
 🔴🔴 evntualmente creare un refresh delle partecipazioni dopo il reale svolgimento tour
 🔴🔴 controllare il funzionamento dell'aperture della chat nel profilo di un altro utente dopo aver inviato un messaggio(probabilmente dimenticato di effettuare i filtri dopo aver invocato getAllChats)
 🔴🔴 css della chat
+🔴🔴 non salvare password utenti nel db
 
 🔴 cancella cartella utils da components
 🔴 ripulire i form di creazione tour e update utente dopo l'invio dei dati

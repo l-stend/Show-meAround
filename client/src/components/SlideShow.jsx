@@ -18,7 +18,17 @@ const LandingSlideShow = () => {
           zIndex: '10',
         }}
       >
-        <h1>Show meAround</h1>
+        {/* <h1>Show meAround</h1> */}
+        <img
+          src='../assets/logoSmA-white.png'
+          style={{
+            height: '20vh',
+            width: '20vw',
+            // objectFit: 'cover',
+            // filter: 'brightness(0.85)',
+          }}
+          alt='not found'
+        />
         <h3>Nulla vitae elit libero, a pharetra augue mollis interdum</h3>
       </div>
       <Carousel
