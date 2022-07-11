@@ -19,10 +19,10 @@ const LandingSlideShow = () => {
         }}
       >
         <img
-          src='https://github.com/l-stend/Show-meAround/blob/main/client/src/assets/logoSmA-white.png?raw=true'
+          src='https://github.com/l-stend/Show-meAround/blob/main/client/src/assets/logoSmA-white-medium.png?raw=true'
           style={{
-            height: '270px',
-            width: '270px',
+            height: '370px',
+            width: '370px',
           }}
           alt='not found'
         />
