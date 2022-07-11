@@ -23,6 +23,8 @@ const LandingSlideShow = () => {
           style={{
             height: '370px',
             width: '370px',
+            paddingTop: '150px',
+            objectFit: 'cover',
           }}
           alt='not found'
         />
