@@ -48,6 +48,7 @@ Backend:<br/>
 Authentication and Image Storage:
 * [Firebase](https://firebase.google.com/)
 
+
 ## Run locally
 
 ### Backend
@@ -57,6 +58,7 @@ navigate to the server folder and run the following commands
 ```bash
 npm install
 ```
+
 ```bash
 nodemon
 ```
