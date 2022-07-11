@@ -1,4 +1,19 @@
-# Show-meAround
+<div id="top"></div>
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://heazy.studio/">
+    <img src="./client/src/assets/logoSmA.png" alt="Logo" width="200" height="200">
+  </a>
+
+  <p align="center">
+    Connecting travelers and locals.
+    <br/>
+    Developed by <a href="https://www.linkedin.com/in/luca-stendardo/?locale=en_US">Luca Stendardo</a>
+    <br/>
+  </p>
+</div>
 
 We all like to travel, and probably all of us have experienced being in a
 station waiting for a connection for hours not knowing what to do.
@@ -13,3 +28,56 @@ of design thinking as part of which the municipality of Bologna provided a group
 social innovators concrete problem areas to analyze. After a phase of empathising, i.e., reaching out
 directly with the people involved to understand their real needs, the group designed the platform that
 I had the pleasure of implementing.
+
+### Built With
+
+Show-meAround was created by using the following awesome tools:
+
+Frontend:<br/>
+
+- [React.js](https://reactjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+
+Backend:<br/>
+
+- [Node / Express](https://expressjs.com/)
+- [MongoDb](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+
+Authentication and Image Storage:
+
+- [Firebase](https://firebase.google.com/)
+
+## Run locally
+
+### Backend
+
+navigate to the server folder and run the following commands
+
+```bash
+npm install
+```
+
+```bash
+nodemon
+```
+
+### Frontend
+
+navigate to the server folder and run the following commands
+
+```bash
+npm install
+```
+
+```bash
+npm start
+```
+
+Now you should have frontend and backend up and running!
+
+## Contact
+
+Luca Stendardo - [LinkedIn](https://www.linkedin.com/in/luca-stendardo/?locale=en_US) - stendardo.lu@gmail.com
