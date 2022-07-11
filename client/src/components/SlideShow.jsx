@@ -18,18 +18,15 @@ const LandingSlideShow = () => {
           zIndex: '10',
         }}
       >
-        {/* <h1>Show meAround</h1> */}
         <img
-          src='../assets/logoSmA-white.png'
+          src='https://github.com/l-stend/Show-meAround/blob/main/client/src/assets/logoSmA-white.png?raw=true'
           style={{
-            height: '20vh',
-            width: '20vw',
-            // objectFit: 'cover',
-            // filter: 'brightness(0.85)',
+            height: '270px',
+            width: '270px',
           }}
           alt='not found'
         />
-        <h3>Nulla vitae elit libero, a pharetra augue mollis interdum</h3>
+        {/* <h3>Nulla vitae elit libero, a pharetra augue mollis interdum</h3> */}
       </div>
       <Carousel
         style={{
