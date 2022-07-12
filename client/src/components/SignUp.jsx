@@ -59,7 +59,7 @@ const SignUp = () => {
         borderColor: 'black',
         border: 'solid 2px black',
         borderRadius: '0px',
-        padding: '0vh 5vw 0vh 5vw',
+        padding: '14vh 5vw 0vh 5vw',
         margin: '3vh 1vw 0vh 2vw',
       }}
     >

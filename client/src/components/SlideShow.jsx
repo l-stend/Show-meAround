@@ -52,8 +52,11 @@ const LandingSlideShow = () => {
             }}
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Show Your Town</h3>
+            <p>
+              Create cool customized tours for travelers waiting at your local
+              station.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -70,8 +73,8 @@ const LandingSlideShow = () => {
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Stop Waiting Around Bored</h3>
+            <p>Have a unique experience while waiting for the next train.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -88,9 +91,9 @@ const LandingSlideShow = () => {
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Meet New Friends</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Make bonds in a new city and maybe invite them to visit yours.
             </p>
           </Carousel.Caption>
         </Carousel.Item>
