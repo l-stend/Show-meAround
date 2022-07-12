@@ -54,7 +54,7 @@ Authentication and Image Storage:
 
 ### Backend
 
-navigate to the server folder and run the following commands
+Navigate to the server folder and run the following commands
 
 ```bash
 npm install
@@ -66,7 +66,7 @@ nodemon
 
 ### Frontend
 
-navigate to the client folder and run the following commands
+Navigate to the client folder and run the following commands
 
 ```bash
 npm install
