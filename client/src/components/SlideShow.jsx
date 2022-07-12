@@ -21,14 +21,14 @@ const LandingSlideShow = () => {
         <img
           src='https://github.com/l-stend/Show-meAround/blob/main/client/src/assets/logo-plain.png?raw=true'
           style={{
-            height: '370px',
+            height: '410px',
             width: '370px',
             paddingTop: '150px',
             objectFit: 'cover',
           }}
           alt='not found'
         />
-        <h1>Show meAround</h1>
+        <h1 style={{ marginBottom: '90px' }}>Show meAround</h1>
         {/* <h3>Nulla vitae elit libero, a pharetra augue mollis interdum</h3> */}
       </div>
       <Carousel
