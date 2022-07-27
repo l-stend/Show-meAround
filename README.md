@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://heazy.studio/">
+  <a href="https://www.linkedin.com/company/86674890">
     <img src="./client/src/assets/logoSmA.png" alt="Logo" width="200" height="200">
   </a>
 
